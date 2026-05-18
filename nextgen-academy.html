@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Next Gen Academy | Skills for the World That's Coming</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,700;0,800;1,700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans','Helvetica Neue',Arial,sans-serif;background:#fff;color:rgba(0,0,0,0.9);line-height:1.45em;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+img{max-width:100%;display:block}
+button{cursor:pointer;border:none;font-family:inherit}
+input,textarea,select{font-family:inherit}
+
+/* ── TOKENS ── */
+:root{
+  --dark:rgb(22,21,18);
+  --dark2:rgb(33,31,27);
+  --white:#fff;
+  --gray:rgb(245,245,245);
+  --gray2:rgb(247,247,247);
+  --text:rgba(0,0,0,0.9);
+  --text2:rgba(0,0,0,0.8);
+  --text3:rgba(0,0,0,0.7);
+  --white9:rgba(255,255,255,0.9);
+  --white7:rgba(255,255,255,0.7);
+  --white6:rgba(255,255,255,0.6);
+  --card-bg:rgba(0,0,0,0.04);
+  --card-border:rgba(0,0,0,0.08);
+  --container:1360px;
+}
+
+/* ── LAYOUT ── */
+.wrap{max-width:var(--container);margin:0 auto;padding:0 40px}
+
+/* ── REVEAL ── */
+.r{opacity:0;transform:translateY(36px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1);will-change:opacity,transform}
+.r.on{opacity:1;transform:none;will-change:auto}
+.r.d1{transition-delay:.10s}.r.d2{transition-delay:.20s}.r.d3{transition-delay:.30s}.r.d4{transition-delay:.40s}.r.d5{transition-delay:.50s}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;display:flex;align-items:center;transition:background .25s,border-color .25s}
+.nav.light{background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.07)}
+.nav.dark-mode{background:transparent}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:var(--container);margin:0 auto;padding:0 40px}
+.nav-logo{display:flex;align-items:center;gap:12px;font-size:15px;font-weight:700;letter-spacing:-.02em;color:rgba(0,0,0,.9)}
+.nav-logo.on-dark{color:#fff}
+.nav-divider{width:1px;height:18px;background:rgba(0,0,0,.15)}
+.nav-logo.on-dark .nav-divider{background:rgba(255,255,255,.25)}
+.nav-logo svg rect{fill:rgba(0,0,0,.9)}
+.nav-logo.on-dark svg rect{fill:#fff}
+.nav-logo svg path{fill:#fff}
+.nav-logo.on-dark svg path{fill:rgba(22,21,18,1)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:14px;font-weight:500;letter-spacing:-.01em;color:rgba(0,0,0,.7);transition:color .2s}
+.nav-links a:hover{color:rgba(0,0,0,.9)}
+.nav-links.on-dark a{color:rgba(255,255,255,.7)}
+.nav-links.on-dark a:hover{color:#fff}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:rgba(0,0,0,.9);color:#fff;border-radius:999px;font-size:14px;font-weight:500;letter-spacing:-.01em;transition:background .2s,transform .2s}
+.nav-cta:hover{background:#111;transform:translateY(-2px) scale(1.02);box-shadow:0 6px 20px rgba(0,0,0,.22)}
+.nav-cta.on-dark{background:#fff;color:rgba(0,0,0,.9)}
+.nav-cta.on-dark:hover{background:rgba(255,255,255,.9)}
+.nav-ham{display:none;flex-direction:column;gap:4px;padding:8px;background:none}
+.nav-ham span{width:20px;height:1.5px;background:rgba(0,0,0,.9);transition:all .25s;border-radius:1px}
+.nav-ham.on-dark span{background:#fff}
+.nav-ham.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+.nav-ham.open span:nth-child(2){opacity:0}
+.nav-ham.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+.mob-menu{display:none;position:fixed;inset:0;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:24px}
+.mob-menu.open{display:flex}
+.mob-menu a{font-size:1.375rem;font-weight:600;color:rgba(0,0,0,.7);transition:color .2s;letter-spacing:-.02em}
+.mob-menu a:hover{color:rgba(0,0,0,.9)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:80px;overflow:hidden}
+/* [IMG PLACEHOLDER] Full-screen background: aspirational classroom/tech education scene — students at laptops, rocket imagery, diverse, energetic. Warm, cinematic, slightly dark-tinted. */
+.hero-bg{position:absolute;inset:0;background:rgb(22,21,18)}
+.hero-bg-img{position:absolute;inset:0;
+  background:url('images/hero-bg.jpg') center/cover no-repeat;
+  opacity:1}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.75) 0%,rgba(0,0,0,.45) 55%,rgba(0,0,0,.15) 100%),linear-gradient(to top,rgba(0,0,0,.5) 0%,rgba(0,0,0,.0) 50%)}
+.hero .wrap{position:relative;z-index:2;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border-radius:999px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:28px;border:1px solid rgba(255,255,255,.12)}
+.hero-badge .dot{width:6px;height:6px;background:#4ade80;border-radius:50%;flex-shrink:0}
+.hero h1{font-size:clamp(48px,6vw,84px);font-weight:800;line-height:1.04;letter-spacing:-.04em;color:#fff;margin-bottom:20px;max-width:720px}
+.hero-desc{font-size:17px;font-weight:400;line-height:1.6em;color:rgba(255,255,255,.7);max-width:480px;margin-bottom:36px;letter-spacing:-.01em}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-w{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:#fff;color:rgba(0,0,0,.9);border-radius:999px;font-size:14px;font-weight:600;letter-spacing:-.01em;transition:all .2s}
+.btn-w:hover{background:rgba(255,255,255,.93);transform:translateY(-3px) scale(1.02);box-shadow:0 10px 28px rgba(0,0,0,.2)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.9);border-radius:999px;font-size:14px;font-weight:600;letter-spacing:-.01em;border:1px solid rgba(255,255,255,.15);transition:all .2s;backdrop-filter:blur(6px)}
+.btn-ghost:hover{background:rgba(255,255,255,.16);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.btn-dark{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:rgba(0,0,0,.9);color:#fff;border-radius:999px;font-size:14px;font-weight:600;letter-spacing:-.01em;transition:all .2s}
+.btn-dark:hover{background:#111;transform:translateY(-3px) scale(1.02);box-shadow:0 10px 28px rgba(0,0,0,.22)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:transparent;color:rgba(0,0,0,.9);border-radius:999px;font-size:14px;font-weight:600;letter-spacing:-.01em;border:1px solid rgba(0,0,0,.15);transition:all .2s}
+.btn-outline:hover{border-color:rgba(0,0,0,.5);transform:translateY(-3px) scale(1.01);box-shadow:0 8px 22px rgba(0,0,0,.08)}
+.arrow{transition:transform .2s;display:inline-block}
+a:hover .arrow{transform:translateX(3px)}
+
+/* ── SEC LABELS / TAGS ── */
+.sec-tag{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;background:rgba(0,0,0,.04);border-radius:999px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(0,0,0,.6);margin-bottom:20px}
+.sec-tag .dot{width:5px;height:5px;background:#4ade80;border-radius:50%}
+
+/* ── SECTION PADDINGS ── */
+.sec{padding:100px 0}
+.sec-sm{padding:72px 0}
+.bg-white{background:var(--white)}
+.bg-gray{background:var(--gray)}
+.bg-dark{background:var(--dark)}
+.bg-dark2{background:var(--dark2)}
+
+/* ── HEADINGS ── */
+.h-xl{font-size:clamp(36px,4.5vw,56px);font-weight:700;line-height:1.08;letter-spacing:-.035em;color:rgba(0,0,0,.9)}
+.h-lg{font-size:40px;font-weight:700;line-height:44px;letter-spacing:-.03em;color:rgba(0,0,0,.9)}
+.h-md{font-size:20px;font-weight:700;line-height:1.3;letter-spacing:-.02em;color:rgba(0,0,0,.9)}
+.h-sm{font-size:17px;font-weight:700;line-height:1.35;letter-spacing:-.02em;color:rgba(0,0,0,.9)}
+.h-xl.inv,.h-lg.inv,.h-md.inv,.h-sm.inv{color:#fff}
+.body-text{font-size:15px;font-weight:400;line-height:1.6em;color:rgba(0,0,0,.7);letter-spacing:-.01em}
+.body-text.inv{color:rgba(255,255,255,.65)}
+.body-lg{font-size:17px;font-weight:400;line-height:1.6em;color:rgba(0,0,0,.7);letter-spacing:-.015em}
+.body-lg.inv{color:rgba(255,255,255,.65)}
+
+/* ── WHY / VALUE PROP ── */
+.why-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
+.why-right{padding-top:10px}
+.why-tagline{font-size:15px;font-style:italic;color:rgba(0,0,0,.55);margin-top:28px;letter-spacing:-.01em;line-height:1.6}
+
+/* ── FEATURE BLOCK ── */
+.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;padding:80px 0 60px;border-top:1px solid rgba(0,0,0,.07);margin-top:80px}
+.feat-grid.flip{direction:rtl}
+.feat-grid.flip>*{direction:ltr}
+.feat-checks{margin:24px 0 32px;display:flex;flex-direction:column;gap:12px}
+.feat-check{display:flex;align-items:flex-start;gap:12px;font-size:14px;font-weight:400;color:rgba(0,0,0,.75);letter-spacing:-.01em;line-height:1.5}
+.feat-check-icon{width:18px;height:18px;border-radius:50%;background:rgba(74,222,128,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.feat-check-icon svg{width:10px;height:10px}
+/* [IMG PLACEHOLDER] Feature image — replace inner background gradient with actual photo */
+.feat-img{width:100%;aspect-ratio:4/3;border-radius:4px;overflow:hidden;background:var(--gray)}
+.feat-img-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:12px;color:rgba(0,0,0,.3);letter-spacing:.03em;text-transform:uppercase}
+
+/* ── PRICING CARDS ── */
+.services-head{text-align:center;max-width:640px;margin:0 auto 56px}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:start}
+.svc-card{background:#fff;border:1px solid rgba(0,0,0,.09);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .35s cubic-bezier(.16,1,.3,1),border-color .25s,transform .35s cubic-bezier(.16,1,.3,1)}
+.svc-card:hover{box-shadow:0 20px 56px rgba(0,0,0,.14);border-color:rgba(0,0,0,.85);transform:translateY(-7px)}
+@keyframes gradShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.svc-card-top{padding:28px 28px 24px;border-bottom:1px solid rgba(0,0,0,.07);background-size:300% 300%;animation:gradShift 10s ease infinite}
+.svc-card:nth-child(1) .svc-card-top{background-image:linear-gradient(135deg,#fff5eb,#fde8f0,#fff0fb,#fef3e2,#fff)}
+.svc-card:nth-child(2) .svc-card-top{background-image:linear-gradient(135deg,#eef0ff,#e8f4ff,#f0e8ff,#eaefff,#f5f0ff)}
+.svc-card:nth-child(3) .svc-card-top{background-image:linear-gradient(135deg,#e8fff4,#e8f8ff,#f0ffe8,#eafff8,#f0fbff)}
+.svc-card-header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:6px}
+.svc-icon{width:44px;height:44px;border-radius:8px;background:rgba(0,0,0,.08);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
+.svc-title{font-size:20px;font-weight:700;letter-spacing:-.03em;color:rgba(0,0,0,.9);margin-bottom:4px}
+.svc-subtitle{font-size:12px;font-weight:500;color:rgba(0,0,0,.45);letter-spacing:.03em;text-transform:uppercase}
+.svc-stat{margin:20px 0 0}
+.svc-price{display:flex;align-items:baseline;gap:3px}
+.svc-price-sym{font-size:22px;font-weight:700;color:rgba(0,0,0,.9);letter-spacing:-.02em;margin-top:6px}
+.svc-stat-num{font-size:48px;font-weight:800;letter-spacing:-.04em;color:rgba(0,0,0,.9);line-height:1}
+.svc-price-per{font-size:13px;color:rgba(0,0,0,.45);letter-spacing:-.01em;align-self:flex-end;padding-bottom:5px}
+.svc-stat-label{font-size:12px;color:rgba(0,0,0,.4);letter-spacing:.01em;margin-top:5px}
+.svc-card-btn{display:block;width:100%;padding:13px;background:rgba(0,0,0,.9);color:#fff;border-radius:8px;font-size:14px;font-weight:600;letter-spacing:-.01em;text-align:center;margin-top:20px;transition:background .2s}
+.svc-card-btn:hover{background:rgba(0,0,0,.75)}
+.svc-card-btn.featured-btn{background:rgba(0,0,0,.9)}
+.svc-card-bottom{padding:24px 28px 28px}
+.svc-feat-label{font-size:13px;font-weight:700;letter-spacing:-.01em;color:rgba(0,0,0,.9);margin-bottom:14px}
+.svc-feat-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(0,0,0,.7);letter-spacing:-.01em;line-height:1.45;padding:5px 0}
+.svc-feat-check{color:#4ade80;font-size:15px;flex-shrink:0;line-height:1.2}
+
+/* ── INDUSTRIES SPLIT ── */
+.ind-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:80px;align-items:center}
+.ind-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ind-card{background:var(--white);border:1px solid rgba(0,0,0,.08);border-radius:4px;padding:20px 20px 22px;transition:border-color .28s,box-shadow .28s cubic-bezier(.16,1,.3,1),transform .28s cubic-bezier(.16,1,.3,1)}
+.ind-card:hover{border-color:rgba(0,0,0,.18);box-shadow:0 8px 28px rgba(0,0,0,.1);transform:translateY(-5px)}
+.ind-card-icon{font-size:1.4rem;margin-bottom:10px;display:block;line-height:1}
+.ind-card-title{font-size:15px;font-weight:700;letter-spacing:-.02em;color:rgba(0,0,0,.9);margin-bottom:5px}
+.ind-card-sub{font-size:12px;color:rgba(0,0,0,.5);letter-spacing:.01em}
+
+/* ── DARK BANNER / STATS ── */
+.banner{position:relative;overflow:hidden;min-height:560px;display:flex;flex-direction:column;justify-content:center;padding:80px 0}
+/* [IMG PLACEHOLDER] Banner background: aspirational cityscape or students in tech session. Dark, cinematic, slightly warm. */
+.banner-bg{position:absolute;inset:0;background:var(--dark2)}
+.banner-bg-img{position:absolute;inset:0;background:url('images/pilot-bg.jpg') center/cover no-repeat;opacity:1}
+.banner-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.75) 0%,rgba(0,0,0,.55) 60%,rgba(0,0,0,.3) 100%)}
+.banner .wrap,.sec-img-bg .wrap{position:relative;z-index:2;text-align:left;width:100%;box-sizing:border-box;max-width:none;padding-left:calc(max(40px,(100vw - 1360px) / 2 + 40px));padding-right:calc(max(40px,(100vw - 1360px) / 2 + 40px))}
+.banner-lead{font-size:clamp(20px,2.8vw,32px);font-weight:700;line-height:1.3;letter-spacing:-.025em;color:#fff;max-width:900px;margin-bottom:56px}
+.stats-row{display:grid;grid-template-columns:repeat(4,auto);gap:40px 64px;justify-content:start}
+.stat-num{font-size:clamp(40px,5vw,64px);font-weight:800;letter-spacing:-.04em;color:#fff;line-height:1;margin-bottom:8px;white-space:nowrap}
+.stat-lbl{font-size:12px;font-weight:500;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.06em}
+
+/* ── PARENTS 3-STEPS ── */
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:56px 0;position:relative}
+.steps-grid::before{content:'';position:absolute;top:36px;left:calc(16.66% + 16px);right:calc(16.66% + 16px);height:1px;background:linear-gradient(to right,rgba(0,0,0,.12),rgba(0,0,0,.06));z-index:0}
+.step-card{padding:0 28px;text-align:center;position:relative;z-index:1}
+.step-num-wrap{width:72px;height:72px;border-radius:50%;background:#fff;border:1.5px solid rgba(0,0,0,.1);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;position:relative;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.step-num-inner{width:52px;height:52px;border-radius:50%;background:rgba(0,0,0,.9);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;letter-spacing:-.03em;color:#fff}
+.step-icon-wrap{font-size:1.4rem;margin-bottom:14px}
+.step-title{font-size:17px;font-weight:700;letter-spacing:-.025em;color:rgba(0,0,0,.9);margin-bottom:6px}
+.step-desc{font-size:14px;color:rgba(0,0,0,.5);letter-spacing:-.01em;line-height:1.5}
+.step-n{font-size:48px;font-weight:800;letter-spacing:-.04em;color:rgba(0,0,0,.1);line-height:1;margin-bottom:16px}
+.step-icon{font-size:1.75rem;margin-bottom:14px;display:block}
+.step-title{font-size:16px;font-weight:700;letter-spacing:-.02em;color:rgba(0,0,0,.9);margin-bottom:6px}
+.step-desc{font-size:14px;color:rgba(0,0,0,.55);letter-spacing:-.01em}
+
+/* ── QUIZ ── */
+.quiz-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.quiz-left{text-align:left}
+.quiz-left .sec-tag{margin-bottom:20px}
+.quiz-left-title{font-size:clamp(32px,3.5vw,52px);font-weight:800;letter-spacing:-.04em;line-height:1.05;color:rgba(0,0,0,.9);margin-bottom:20px}
+.quiz-left-body{font-size:15px;color:rgba(0,0,0,.55);line-height:1.6;margin-bottom:32px;letter-spacing:-.01em}
+.quiz-stat-row{display:flex;gap:32px;margin-top:8px}
+.quiz-stat{display:flex;flex-direction:column;gap:3px}
+.quiz-stat-n{font-size:28px;font-weight:800;letter-spacing:-.04em;color:rgba(0,0,0,.9)}
+.quiz-stat-l{font-size:12px;color:rgba(0,0,0,.45);letter-spacing:.01em;text-transform:uppercase}
+.quiz-box{background:rgb(22,21,18);border-radius:16px;padding:40px;box-shadow:0 24px 64px rgba(0,0,0,.15)}
+.quiz-prog{display:flex;gap:6px;margin-bottom:32px}
+.quiz-pip{height:3px;flex:1;background:rgba(255,255,255,.12);border-radius:2px;transition:background .3s}
+.quiz-pip.active{background:#fff}
+.quiz-pip.done{background:#4ade80}
+.quiz-q{font-size:19px;font-weight:700;letter-spacing:-.03em;color:#fff;margin-bottom:24px}
+.quiz-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.quiz-opt{padding:14px 18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;font-size:14px;font-weight:500;color:rgba(255,255,255,.8);text-align:left;transition:all .2s;letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
+.quiz-opt:hover{border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.1)}
+.quiz-opt.sel{border-color:#4ade80;background:rgba(74,222,128,.1);color:#fff}
+.quiz-result{display:none;text-align:center;padding:12px 0}
+.quiz-result.on{display:block}
+.quiz-result-icon{font-size:3rem;margin-bottom:16px;display:block}
+.quiz-result-h{font-size:24px;font-weight:800;letter-spacing:-.03em;margin-bottom:8px;color:#fff}
+.quiz-result-p{font-size:14px;color:rgba(255,255,255,.55);margin-bottom:24px}
+
+/* ── HOW IT WORKS — stepper ── */
+.how-stepper{display:flex;align-items:flex-start;margin-top:64px}
+/* Step item: fixed width, centered */
+.how-step-item{flex:0 0 200px;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:1}
+/* Connector track between items */
+.how-connector{flex:1;display:flex;align-items:center;padding-top:20px;min-width:20px}
+.how-conn-track{width:100%;height:2px;border-radius:1px;background:#dbeafe;position:relative;overflow:hidden}
+.how-conn-fill{position:absolute;left:0;top:0;height:100%;width:100%;border-radius:1px;transform-origin:left center;transform:scaleX(0);transition:transform .42s cubic-bezier(.22,1,.36,1);will-change:transform}
+/* circle */
+.how-step-circle{width:40px;height:40px;border-radius:50%;box-sizing:border-box;border:2px solid transparent;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;flex-shrink:0;margin-bottom:16px;transition:background .24s cubic-bezier(.22,1,.36,1),border-color .24s cubic-bezier(.22,1,.36,1),box-shadow .24s cubic-bezier(.22,1,.36,1),transform .2s cubic-bezier(.22,1,.36,1);will-change:transform}
+.how-step-item.st-done .how-step-circle{background:#16a34a}
+.how-step-item.st-active .how-step-circle{background:#fff;border-color:#3b82f6;box-shadow:0 0 0 4px rgba(59,130,246,.1)}
+.how-step-item.st-pending .how-step-circle{background:#dbeafe}
+/* inner dot for active */
+.how-step-item.st-active .how-step-circle::after{content:'';width:12px;height:12px;border-radius:50%;background:#3b82f6;display:block}
+/* checkmark for done */
+.how-step-check{color:#fff;font-size:16px;line-height:1;opacity:0;transform:scale(0);transition:opacity .16s,transform .2s cubic-bezier(.22,1,.36,1);display:block}
+.st-done .how-step-check{opacity:1;transform:scale(1)}
+/* hide inner dot when done */
+.st-done .how-step-circle::after{display:none}
+/* circle pop on done */
+.st-done .how-step-circle{transform:scale(1.04)}
+.st-active .how-step-circle{transform:scale(1)}
+/* labels */
+.how-step-body{width:100%;padding:0 4px}
+.how-n{font-size:11px;font-weight:700;letter-spacing:.06em;color:rgba(0,0,0,.4);text-transform:uppercase;margin-bottom:6px}
+.how-title{font-size:16px;font-weight:700;letter-spacing:-.02em;color:rgba(0,0,0,.9);margin-bottom:5px}
+.how-status{font-size:13px;font-weight:600;letter-spacing:-.01em;transition:color .4s}
+.st-done .how-status{color:#16a34a}
+.st-active .how-status{color:#3b82f6}
+.st-pending .how-status{color:rgba(0,0,0,.35)}
+.how-desc{font-size:13px;color:rgba(0,0,0,.5);line-height:1.5;letter-spacing:-.01em;margin-top:4px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+
+/* ── CERT CARDS ── */
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:48px}
+.cert-card{background:var(--card-bg);border-radius:4px;padding:40px 28px;text-align:center;transition:background .25s,transform .32s cubic-bezier(.16,1,.3,1),box-shadow .32s cubic-bezier(.16,1,.3,1)}
+.cert-card:hover{background:rgba(0,0,0,.07);transform:translateY(-6px);box-shadow:0 14px 36px rgba(0,0,0,.1)}
+.cert-card-img:hover{box-shadow:0 18px 48px rgba(0,0,0,.28);transform:translateY(-6px)}
+.cert-icon{font-size:2.25rem;margin-bottom:16px;display:block}
+.cert-title{font-size:16px;font-weight:700;letter-spacing:-.02em;margin-bottom:6px}
+.cert-desc{font-size:14px;color:rgba(0,0,0,.55);letter-spacing:-.01em}
+
+/* ── FAQ ── */
+.faq-wrap{max-width:720px;margin:48px auto 0}
+.faq-item{border-bottom:1px solid rgba(0,0,0,.08)}
+.faq-btn{width:100%;padding:22px 0;background:none;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:15px;font-weight:600;letter-spacing:-.02em;color:rgba(0,0,0,.9);transition:color .2s}
+.faq-btn:hover{color:rgba(0,0,0,.6)}
+.faq-icon{flex-shrink:0;transition:transform .3s;color:rgba(0,0,0,.4)}
+.faq-item.open .faq-icon{transform:rotate(180deg)}
+.faq-body{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.16,1,.3,1)}
+.faq-item.open .faq-body{max-height:300px}
+.faq-body-inner{padding-bottom:20px;font-size:14px;color:rgba(0,0,0,.6);line-height:1.65;letter-spacing:-.01em}
+
+/* ── SCHOOL FORM ── */
+.form-card{background:var(--gray);border-radius:4px;padding:40px 36px}
+.form-card h3{font-size:22px;font-weight:700;letter-spacing:-.03em;margin-bottom:6px}
+.form-card>p{font-size:14px;color:rgba(0,0,0,.5);margin-bottom:28px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fg{display:flex;flex-direction:column;gap:5px}
+.fg.full{grid-column:1/-1}
+.fg label{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:rgba(0,0,0,.45)}
+.fg input,.fg select,.fg textarea{padding:11px 14px;background:var(--white);border:1px solid rgba(0,0,0,.1);border-radius:4px;font-size:14px;color:rgba(0,0,0,.9);letter-spacing:-.01em;outline:none;transition:border-color .2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:rgba(0,0,0,.4)}
+.fg textarea{resize:vertical;min-height:72px}
+.form-submit{margin-top:16px;width:100%;padding:14px;background:rgba(0,0,0,.9);color:#fff;border-radius:4px;font-size:14px;font-weight:600;letter-spacing:-.01em;transition:background .2s}
+.form-submit:hover{background:#000}
+
+/* ── SCHOOLS SECTION SPLIT ── */
+.schools-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.schools-feats{margin:28px 0 32px;display:flex;flex-direction:column;gap:8px}
+.schools-feat{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;color:rgba(0,0,0,.75);letter-spacing:-.01em}
+.schools-feat .tick{color:#4ade80;font-size:1rem}
+.pilot-note{padding:14px 18px;background:rgba(0,0,0,.04);border-radius:4px;font-size:13px;color:rgba(0,0,0,.6);line-height:1.55;margin-bottom:24px;letter-spacing:-.01em;border-left:2px solid rgba(74,222,128,.6)}
+
+/* ── FINAL CTA ── */
+.final-cta{text-align:center;background:#f5f5f5}
+.cta-box{position:relative;border-radius:20px;overflow:hidden;padding:80px 60px;background:url('images/cta-bg.jpg') center/cover no-repeat}
+.cta-box::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.55) 0%,rgba(0,0,0,.72) 100%);border-radius:inherit}
+.cta-box-inner{position:relative;z-index:2}
+.final-cta .h-xl{margin-bottom:16px;max-width:700px;margin-left:auto;margin-right:auto;color:#fff}
+.final-cta .body-lg{max-width:560px;margin:0 auto 40px;color:rgba(255,255,255,.75)}
+.cta-btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+
+/* ── FOOTER ── */
+.footer{background:var(--dark);padding:72px 0 36px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:80px;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-brand-logo{display:flex;align-items:center;gap:12px;font-size:15px;font-weight:700;letter-spacing:-.02em;color:#fff;margin-bottom:12px}
+.footer-brand-logo .nav-divider{background:rgba(255,255,255,.2)}
+.footer-tagline{font-size:14px;color:rgba(255,255,255,.4);letter-spacing:-.01em}
+.footer h5{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.3);margin-bottom:16px}
+.footer-links a{display:block;font-size:14px;font-weight:400;color:rgba(255,255,255,.55);padding:5px 0;letter-spacing:-.01em;transition:color .2s}
+.footer-links a:hover{color:rgba(255,255,255,.9)}
+.footer-contact a{display:flex;align-items:center;gap:8px;font-size:14px;color:rgba(255,255,255,.55);padding:5px 0;transition:color .2s;letter-spacing:-.01em}
+.footer-contact a:hover{color:rgba(255,255,255,.9)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.25);letter-spacing:-.01em}
+.footer-social{display:flex;gap:8px}
+.footer-social a{width:34px;height:34px;border-radius:4px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);transition:all .2s}
+.footer-social a:hover{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.8)}
+
+/* ══════════════════════════════════
+   ANIMATION SYSTEM ENHANCEMENTS
+   ══════════════════════════════════ */
+
+/* ── HERO LOAD-IN (fires on page load, not scroll) ── */
+@keyframes heroIn{
+  0%{opacity:0;transform:translateY(40px)}
+  100%{opacity:1;transform:none}
+}
+.hero-anim{opacity:0;animation:heroIn .9s cubic-bezier(.16,1,.3,1) both}
+.hero-anim.d1{animation-delay:.12s}
+.hero-anim.d2{animation-delay:.26s}
+.hero-anim.d3{animation-delay:.40s}
+.hero-anim.d4{animation-delay:.54s}
+
+/* ── STEPPER HOVER ── */
+.how-step-item{transition:opacity .2s}
+.how-step-item:hover .how-step-circle{transform:scale(1.06)}
+.how-step-item.st-done:hover .how-step-circle{box-shadow:0 0 0 6px rgba(22,163,74,.12)}
+.how-step-item.st-active:hover .how-step-circle{box-shadow:0 0 0 8px rgba(59,130,246,.15)}
+.how-step-body{transition:transform .3s cubic-bezier(.16,1,.3,1)}
+.how-step-item:hover .how-step-body{transform:translateY(-3px)}
+
+/* ── QUIZ OPTION HOVER ── */
+.quiz-opt{transition:border-color .2s,background .2s,transform .2s cubic-bezier(.16,1,.3,1)}
+.quiz-opt:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.1)}
+
+/* ── FAQ HOVER ── */
+.faq-item{border-radius:6px;transition:background .2s}
+.faq-item:hover{background:rgba(0,0,0,.025)}
+.faq-btn{transition:color .2s,letter-spacing .2s}
+
+/* ── FORM FOCUS GLOW ── */
+.fg input,.fg select,.fg textarea{transition:border-color .2s,box-shadow .2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:rgba(0,0,0,.45);box-shadow:0 0 0 3px rgba(0,0,0,.05)}
+.form-submit{transition:background .2s,transform .25s cubic-bezier(.16,1,.3,1),box-shadow .25s}
+.form-submit:hover{background:#111;transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.18)}
+
+/* ── PARENTS 2-COL LAYOUT ── */
+.parents-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center}
+.parents-left{display:flex;flex-direction:column;align-items:flex-start}
+.parents-right .steps-grid{margin:0}
+
+/* ── STEP CARD HOVER (parents section) ── */
+.step-card{transition:transform .3s cubic-bezier(.16,1,.3,1)}
+.step-card:hover{transform:translateY(-6px)}
+.step-num-wrap{transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s}
+.step-card:hover .step-num-wrap{transform:scale(1.08);box-shadow:0 4px 16px rgba(0,0,0,.12)}
+
+/* ── FOOTER LINK HOVER ── */
+.footer-links a{transition:color .2s,transform .2s}
+.footer-links a:hover{color:rgba(255,255,255,.9);transform:translateX(3px)}
+.footer-contact a{transition:color .2s,transform .2s}
+.footer-contact a:hover{color:rgba(255,255,255,.9);transform:translateX(3px)}
+
+/* ── PILOT NOTE HOVER ── */
+.pilot-note{transition:border-left-color .2s,background .2s}
+.pilot-note:hover{border-left-color:rgba(74,222,128,1);background:rgba(0,0,0,.06)}
+
+/* ── SCHOOLS FEATURE LIST HOVER ── */
+.schools-feat{transition:transform .25s cubic-bezier(.16,1,.3,1),color .2s}
+.schools-feat:hover{transform:translateX(4px)}
+
+/* ── IMAGE CARDS — subtle bg zoom via transform ── */
+.cert-card-img{overflow:hidden}
+.cert-card-img::before{content:'';position:absolute;inset:0;background:inherit;background-size:cover;transition:transform .6s cubic-bezier(.16,1,.3,1);z-index:0}
+
+/* ── STAT NUMBERS — subtle scale on reveal ── */
+.stat-num{transition:transform .4s cubic-bezier(.16,1,.3,1)}
+
+/* ── SECTION TRANSITION — skills full-bleed section inner content ── */
+.sec-img-bg .feat-check{transition:transform .25s cubic-bezier(.16,1,.3,1),opacity .25s}
+.sec-img-bg .feat-check:hover{transform:translateX(4px)}
+
+/* ══════════════════════════════════
+   ACCESSIBILITY — REDUCED MOTION
+   ══════════════════════════════════ */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important
+  }
+  .r{opacity:1!important;transform:none!important;transition:none!important;will-change:auto!important}
+  .hero-anim{opacity:1!important;animation:none!important}
+  @keyframes gradShift{0%,100%{background-position:0% 50%}}
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .wrap{padding:0 28px}
+  .nav-inner{padding:0 28px}
+  .why-grid{grid-template-columns:1fr;gap:32px}
+  .feat-grid{grid-template-columns:1fr;gap:36px}
+  .feat-grid.flip{direction:ltr}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .ind-grid{grid-template-columns:1fr;gap:40px}
+  .schools-grid{grid-template-columns:1fr;gap:40px}
+  .stats-row{grid-template-columns:repeat(2,1fr);gap:32px}
+  .how-stepper{flex-direction:column;gap:0}.how-step-item{flex:0 0 auto;flex-direction:row;gap:20px;align-items:flex-start;text-align:left;width:100%}.how-step-circle{margin-bottom:0;flex-shrink:0}.how-step-body{padding:0 0 28px;width:auto;flex:1}.how-connector{display:none}
+  .footer-top{grid-template-columns:1fr 1fr;gap:40px}
+  .parents-layout{grid-template-columns:1fr;gap:48px}
+  .parents-left{align-items:flex-start}
+  .parents-right .steps-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:768px){
+  .wrap{padding:0 20px}
+  .nav-inner{padding:0 20px}
+  .sec{padding:72px 0}
+  .nav-links,.nav-cta{display:none}
+  .nav-ham{display:flex}
+  .hero h1{font-size:42px}
+  .hero-btns{flex-direction:column}
+  .hero-btns a{text-align:center;justify-content:center}
+  .services-grid{grid-template-columns:1fr}
+  .ind-cards{grid-template-columns:1fr}
+  .parents-layout{grid-template-columns:1fr;gap:40px}
+  .parents-left{align-items:center;text-align:center}
+  .steps-grid{grid-template-columns:1fr;max-width:360px;margin:48px auto}.steps-grid::before{display:none}.step-card{padding:0 0 32px}
+  .cert-grid{grid-template-columns:1fr;max-width:360px;margin:48px auto 0}
+  .how-stepper{max-width:380px;margin:48px auto 0}
+  .stats-row{grid-template-columns:1fr 1fr;gap:24px}
+  .quiz-opts{grid-template-columns:1fr}
+  .cta-btns{flex-direction:column;align-items:center}
+  .footer-top{grid-template-columns:1fr;gap:28px}
+  .footer-bottom{flex-direction:column;gap:12px;text-align:center}
+  .form-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .hero h1{font-size:34px}
+  .h-xl{font-size:28px}
+  .h-lg{font-size:28px;line-height:1.2}
+  .quiz-box{padding:28px 20px}
+  .form-card{padding:28px 20px}
+}
+
+/* ══════════════════════════════════
+   RESPONSIVE OVERHAUL
+   ══════════════════════════════════ */
+
+/* ── TABLET (≤1024px) additions ── */
+@media(max-width:1024px){
+  .sec{padding:80px 0}
+  /* Quiz was missing a stack rule */
+  .quiz-layout{grid-template-columns:1fr;gap:48px}
+  .quiz-box{padding:32px 24px}
+  /* Sec-img-bg inner content — unconstrain max-width */
+  .sec-img-bg .wrap .r{max-width:100%}
+  /* Stats — use auto cols so white-space:nowrap nums don't fight 1fr math */
+  .stats-row{grid-template-columns:repeat(2,auto);justify-content:start;gap:28px 48px}
+}
+
+/* ── MOBILE (≤768px) additions ── */
+@media(max-width:768px){
+  /* Section padding */
+  .sec{padding:60px 0}
+  .sec-sm{padding:48px 0}
+  /* Fix inline padding on #about that media queries can't reach otherwise */
+  #about{padding:52px 0!important}
+
+  /* Hero */
+  .hero{padding-bottom:52px}
+  .hero-badge{font-size:11px;margin-bottom:16px}
+  .hero-desc{font-size:16px;max-width:100%;margin-bottom:24px}
+  .hero-btns a{width:100%;justify-content:center;text-align:center}
+
+  /* Programs — fix nowrap overflow */
+  .services-head .h-xl{white-space:normal!important}
+  .services-head{margin-bottom:36px}
+
+  /* Banner & special-padding wraps — override calc rule back to wrap default */
+  .banner{padding:60px 0}
+  .banner .wrap,.sec-img-bg .wrap{padding-left:20px!important;padding-right:20px!important}
+  .banner-lead{font-size:20px;margin-bottom:32px}
+
+  /* Stats — 2×auto so nowrap stat-nums don't overflow 1fr columns */
+  .stats-row{grid-template-columns:repeat(2,auto);justify-content:start;gap:24px 36px}
+
+  /* Pilot banner CTA button — full width */
+  .banner .btn-w{width:100%;max-width:360px;justify-content:center}
+
+  /* Sec-img-bg — don't force 100vh on mobile */
+  .sec-img-bg{min-height:60vh!important;padding:72px 0}
+
+  /* Quiz */
+  .quiz-layout{grid-template-columns:1fr;gap:36px}
+  .quiz-box{padding:28px 20px}
+
+  /* Parents: override the higher-specificity 1024px 3-col rule */
+  .parents-right .steps-grid{grid-template-columns:1fr!important;max-width:100%;margin:0}
+
+  /* How stepper — stretch full width on mobile, stop centering a 380px strip */
+  .how-stepper{max-width:100%}
+
+  /* Cert grid — remove 360px cap; full-width 1-col looks much better on tablet */
+  .cert-grid{max-width:100%!important;margin-top:36px}
+
+  /* CTA box — 60px side padding is too much on phones */
+  .cta-box{padding:52px 28px}
+  .cta-btns a{width:100%;max-width:360px;justify-content:center;text-align:center}
+  .final-cta .h-xl{max-width:100%}
+  .final-cta .body-lg{max-width:100%}
+
+  /* Footer */
+  .footer{padding:52px 0 24px}
+
+  /* Mobile menu — bigger tap targets */
+  .mob-menu{gap:8px;padding:80px 28px}
+  .mob-menu a{min-height:48px;display:flex;align-items:center;padding:0 8px;width:100%;justify-content:center}
+}
+
+/* ── SMALL MOBILE (≤480px) additions ── */
+@media(max-width:480px){
+  /* Section padding — reduce further */
+  .sec{padding:48px 0}
+  #about{padding:44px 0!important}
+
+  /* Hero */
+  .hero{padding-bottom:44px}
+  .hero-desc{font-size:15px}
+
+  /* Banner */
+  .banner{padding:48px 0}
+  .banner-lead{font-size:18px;margin-bottom:28px}
+  .banner .wrap,.sec-img-bg .wrap{padding-left:16px!important;padding-right:16px!important}
+
+  /* Stats — tighten gap at small width */
+  .stats-row{gap:20px 28px}
+
+  /* CTA */
+  .cta-box{padding:40px 20px}
+  .cta-btns a{max-width:100%}
+
+  /* Typography floor */
+  .body-lg{font-size:16px}
+  .body-text{font-size:15px}
+  .quiz-left-title{font-size:28px}
+
+  /* Stepper */
+  .how-step-item{gap:14px}
+  .how-title{font-size:15px}
+
+  /* Quiz stats */
+  .quiz-stat-row{gap:20px}
+  .quiz-stat-n{font-size:24px}
+
+  /* Footer */
+  .footer{padding:44px 0 20px}
+
+  /* Step cards */
+  .step-card{padding:0 0 20px}
+  .parents-right .steps-grid{max-width:100%!important}
+}
+
+/* ── TINY PHONES (≤380px) ── */
+@media(max-width:380px){
+  .wrap{padding:0 16px}
+  .nav-inner{padding:0 16px}
+  .banner .wrap,.sec-img-bg .wrap{padding-left:16px!important;padding-right:16px!important}
+  .hero h1{font-size:28px}
+  .h-xl{font-size:24px}
+  .h-lg{font-size:24px}
+  .stat-num{font-size:34px}
+  .cta-box{padding:36px 16px}
+  .quiz-box{padding:24px 16px}
+  .form-card{padding:24px 16px}
+  .svc-card-top,.svc-card-bottom{padding:20px}
+  .mob-menu{padding:72px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav class="nav dark-mode" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo on-dark" id="navLogo">
+      <img src="images/nga-logo.png" alt="Next Gen Academy" style="height:32px;width:auto;display:block">
+    </a>
+    <nav class="nav-links on-dark" id="navLinks">
+      <a href="#hero">Home</a>
+      <a href="#programs">Our Programs</a>
+      <a href="#schools">For Schools</a>
+      <a href="#adults">For Adults</a>
+      <a href="#about">About</a>
+      <a href="#register">Register</a>
+    </nav>
+    <a href="#pilot" class="nav-cta on-dark" id="navCta">Join the Pilot</a>
+    <button class="nav-ham on-dark" id="navHam" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="#hero" onclick="closeMob()">Home</a>
+  <a href="#programs" onclick="closeMob()">Our Programs</a>
+  <a href="#schools" onclick="closeMob()">For Schools</a>
+  <a href="#adults" onclick="closeMob()">For Adults</a>
+  <a href="#about" onclick="closeMob()">About</a>
+  <a href="#register" onclick="closeMob()">Register</a>
+  <a href="#pilot" class="btn-dark" style="margin-top:12px" onclick="closeMob()">Join the Pilot</a>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="hero">
+  <div class="hero-bg"><div class="hero-bg-img"></div><div class="hero-overlay"></div></div>
+  <!-- [IMG] Replace .hero-bg-img with: background-image:url('YOUR_IMAGE.jpg');background-size:cover;background-position:center -->
+  <div class="wrap">
+    <div class="hero-anim"><div class="hero-badge"><span class="dot"></span>India's First Launch &mdash; Dehradun Summer Pilot</div></div>
+    <h1 class="hero-anim d1">Learning Just<br>Levelled Up.</h1>
+    <p class="hero-desc hero-anim d2">Future-ready skills for students, professionals, and everyone in between. From AI and coding to critical thinking &mdash; we make the next generation unstoppable.</p>
+    <div class="hero-btns hero-anim d3">
+      <a href="#programs" class="btn-w">I'm a Student / Parent <span class="arrow">&rarr;</span></a>
+      <a href="#schools" class="btn-ghost">I Represent a School</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY / VALUE PROP ═══ -->
+<section class="sec bg-white" id="about" style="padding-top:80px;padding-bottom:80px">
+  <div class="wrap">
+    <div class="why-grid">
+      <div class="r">
+        <h2 class="h-xl">The World Is Changing.<br>Is Your Child Ready?</h2>
+      </div>
+      <div class="r d2" style="display:flex;align-items:center">
+        <p class="body-lg">85 million jobs will be transformed by AI by 2030. Future careers don't exist yet &mdash; we're teaching kids to create them. Web3 &amp; AI are the new literacy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SKILLS FEATURE — full-bleed background image ═══ -->
+<section class="sec-img-bg" style="position:relative;min-height:100vh;display:flex;align-items:center;background:url('images/students-ai-classroom.jpg') center/cover no-repeat;overflow:hidden">
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.72) 0%,rgba(0,0,0,.45) 55%,rgba(0,0,0,.15) 100%)"></div>
+  <div class="wrap">
+    <div class="r" style="max-width:540px">
+      <p style="color:rgba(255,255,255,.5);font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px">Future-Ready Education</p>
+      <h3 class="h-lg" style="margin-bottom:16px;color:#fff;font-size:56px;line-height:1.08">The Skills Schools<br>Don't Teach Yet</h3>
+      <p class="body-text" style="color:rgba(255,255,255,.75);margin-bottom:28px">Our programs go beyond theory. We give students and adults the tools, the confidence, and the real-world skills to thrive in a world changing faster than any textbook can keep up with.</p>
+      <div class="feat-checks">
+        <div class="feat-check r d1" style="color:rgba(255,255,255,.85)"><span class="feat-check-icon"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>AI, coding, and critical thinking from day one</div>
+        <div class="feat-check r d2" style="color:rgba(255,255,255,.85)"><span class="feat-check-icon"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Project-based learning &mdash; portfolios, not just certificates</div>
+        <div class="feat-check r d3" style="color:rgba(255,255,255,.85)"><span class="feat-check-icon"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Programs for every age &mdash; Grades 5 through adult</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROGRAMS (3-col service cards) ═══ -->
+<section class="sec bg-gray" id="programs">
+  <div class="wrap">
+    <div class="services-head r">
+      <h2 class="h-xl" style="margin-bottom:16px;white-space:nowrap">Choose Your Learning Path</h2>
+      <p class="body-lg">Whether you're 12 or 42, there's a program built just for you.</p>
+    </div>
+    <div class="services-grid">
+
+      <!-- Explorer Track -->
+      <div class="svc-card r d1">
+        <div class="svc-card-top">
+          <div class="svc-card-header">
+            <div>
+              <p class="svc-title">Explorer Track</p>
+              <p class="svc-subtitle">Young Explorers &bull; Grades 5–8</p>
+            </div>
+            <div class="svc-icon">&#x1F9ED;</div>
+          </div>
+          <div class="svc-stat">
+            <div class="svc-price"><span class="svc-price-sym">₹</span><span class="svc-stat-num">4,999</span><span class="svc-price-per">/ course</span></div>
+            <p class="svc-stat-label">8 weeks &nbsp;·&nbsp; 6 modules</p>
+          </div>
+          <a href="#register" class="svc-card-btn">Enroll Now</a>
+        </div>
+        <div class="svc-card-bottom">
+          <p class="svc-feat-label">What's Included</p>
+          <div class="svc-feat-item"><span class="svc-feat-check">✓</span>Coding &amp; Logic Basics</div>
+          <div class="svc-feat-item"><span class="svc-feat-check">✓</span>AI — What It Is &amp; How It Works</div>
+          <div class="svc-feat-item"><span class="svc-feat-check">✓</span>Digital Storytelling &amp; Creativity</div>
+          <div class="svc-feat-item"><span class="svc-feat-check">✓</span>Problem Solving &amp; Critical Thinking</div>
+          <div class="svc-feat-item"><span class="svc-feat-check">✓</span>Internet Safety &amp; Digital Citizenship</div>
+          <div class="svc-feat-item"><span class="svc-feat-check">✓</span>Mini Projects &amp; Team Challenges</div>
+        </div>
+      </div>
+
+      <!-- Builder Track — featured -->
+      <div class="svc-card r d2">
+        <div class="svc-card-top">
+          <div class="svc-card-header">
+            <div>
+              <p class="svc-title">Builder Track</p>
+              <p class="svc-subtitle">Next Gen Builders &bull; Grades 9–12</p>
+            </div>
+            <div class="svc-icon">&#x1F527;</div>
+          </div>
+          <div class="svc-stat">
+            <div class="svc-price"><span class="svc-price-sym">₹</span><span class="svc-stat-num">7,999</span><span class="svc-price-per">/ course</span></div>
+            <p class="svc-stat-label">12 weeks &nbsp;·&nbsp; 10 modules</p>
+          </div>
+          <a href="#register" class="svc-card-btn featured-btn">Enroll Now</a>
+        </div>
+        <div class="svc-card-bottom">
+          <p class="svc-feat-label">What's Included</p>
+          <div class="svc-feat-item"><span class="svc-feat-check">✓</span>Advanced AI Tools &amp; Prompt Engineering</div>
+          <div class="svc-feat-item"><span class="svc-feat-check">✓</span>App &amp; Web Development Basics</div>
+          <div class="svc-feat-item"><span class="svc-feat-check">✓</span>Entrepreneurial Thinking &amp; Pitching</div>
+          <div class="svc-feat-item"><span class="svc-feat-check">✓</span>Real-World Portfolio Project</div>
+          <div class="svc-feat-item"><span class="svc-feat-check">✓</span>Startup &amp; Product Thinking</div>
+          <div class="svc-feat-item"><span class="svc-feat-check">✓</span>Verified Digital Certificate</div>
+        </div>
+      </div>
+
+      <!-- Power Skills Track -->
+      <div class="svc-card r d3">
+        <div class="svc-card-top">
+          <div class="svc-card-header">
+            <div>
+              <p class="svc-title">Power Skills Track</p>
+              <p class="svc-subtitle">Adults &bull; Professionals &bull; Any Background</p>
+            </div>
+            <div class="svc-icon">&#x26A1;</div>
+          </div>
+          <div class="svc-stat">
+            <div class="svc-price"><span class="svc-price-sym">₹</span><span class="svc-stat-num">9,999</span><span class="svc-price-per">/ course</span></div>
+            <p class="svc-stat-label">Self-paced &nbsp;·&nbsp; 79 lessons &nbsp;·&nbsp; 17 chapters</p>
+          </div>
+          <a href="#adults" class="svc-card-btn">Join the Track</a>
+        </div>
+        <div class="svc-card-bottom">
+          <p class="svc-feat-label">What's Included</p>
+          <div class="svc-feat-item"><span class="svc-feat-check">✓</span>AI, Web3 &amp; Digital Marketing</div>
+          <div class="svc-feat-item"><span class="svc-feat-check">✓</span>Crypto &amp; Blockchain Fundamentals</div>
+          <div class="svc-feat-item"><span class="svc-feat-check">✓</span>Self-Paced — Learn Anytime</div>
+          <div class="svc-feat-item"><span class="svc-feat-check">✓</span>No Tech Background Needed</div>
+          <div class="svc-feat-item"><span class="svc-feat-check">✓</span>Globally Shareable Certificate</div>
+          <div class="svc-feat-item"><span class="svc-feat-check">✓</span>Future-Proof Your Career</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ FOR SCHOOLS (Industries-style split) ═══ -->
+<section class="sec bg-gray" id="schools">
+  <div class="wrap">
+    <div class="ind-grid">
+      <div class="r">
+        <div class="sec-tag"><span class="dot"></span>For Schools &amp; Institutions</div>
+        <h2 class="h-xl" style="margin-bottom:20px">Give Your Students the Skills No Textbook Teaches.</h2>
+        <p class="body-text">Partner with Next Gen Academy to offer structured, curriculum-aligned digital skills programs. We handle the content, the platform, and the outcomes. You just bring the students.</p>
+        <div class="schools-feats">
+          <div class="schools-feat"><span class="tick">&#10003;</span>Ready-to-deploy curriculum for Grade 5&ndash;8 and 9&ndash;12</div>
+          <div class="schools-feat"><span class="tick">&#10003;</span>Dedicated school portal to track student progress</div>
+          <div class="schools-feat"><span class="tick">&#10003;</span>Batch enrollment &amp; group pricing</div>
+          <div class="schools-feat"><span class="tick">&#10003;</span>Teacher orientation &amp; support</div>
+          <div class="schools-feat"><span class="tick">&#10003;</span>Certificates for all students</div>
+          <div class="schools-feat"><span class="tick">&#10003;</span>Customizable program scheduling</div>
+        </div>
+        <div class="pilot-note">&#128205; Currently accepting pilot partners in Dehradun &mdash; Summer 2026. Limited seats.</div>
+        <a href="#register" class="btn-dark">Register Your School <span class="arrow">&rarr;</span></a>
+      </div>
+      <div class="ind-cards r d2">
+        <div class="ind-card"><span class="ind-card-icon">📚</span><p class="ind-card-title">Ready Curriculum</p><p class="ind-card-sub">Grades 5&ndash;8 &bull; Grades 9&ndash;12</p></div>
+        <div class="ind-card"><span class="ind-card-icon">🖥️</span><p class="ind-card-title">School Portal</p><p class="ind-card-sub">Real-time student tracking</p></div>
+        <div class="ind-card"><span class="ind-card-icon">👥</span><p class="ind-card-title">Batch Enrollment</p><p class="ind-card-sub">Group pricing &bull; Streamlined</p></div>
+        <div class="ind-card"><span class="ind-card-icon">🎓</span><p class="ind-card-title">Teacher Support</p><p class="ind-card-sub">Orientation &bull; Ongoing training</p></div>
+        <div class="ind-card"><span class="ind-card-icon">🏆</span><p class="ind-card-title">Certificates</p><p class="ind-card-sub">Verified &bull; Shareable &bull; Digital</p></div>
+        <div class="ind-card"><span class="ind-card-icon">📅</span><p class="ind-card-title">Flexible Schedule</p><p class="ind-card-sub">Customizable program timing</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PILOT BANNER (dark image + stats) ═══ -->
+<section class="banner" id="pilot">
+  <div class="banner-bg"><div class="banner-bg-img"></div><div class="banner-overlay"></div></div>
+  <!-- [IMG] Replace .banner-bg-img with: background-image:url('YOUR_PILOT_IMAGE.jpg');background-size:cover;background-position:center — aspirational Dehradun / students in tech session -->
+  <div class="wrap">
+    <p class="banner-lead r">Next Gen Academy's pilot program kicks off this summer in Dehradun. We're onboarding a limited number of schools and students to refine the experience &mdash; before we take it global. If you're in Dehradun, you get to be part of something millions of students will one day wish they had access to first.</p>
+    <div class="stats-row">
+      <div class="r d1"><div class="stat-num">Summer '26</div><div class="stat-lbl">Dehradun Launch</div></div>
+      <div class="r d2"><div class="stat-num">G5&ndash;12</div><div class="stat-lbl">Student Tracks</div></div>
+      <div class="r d3"><div class="stat-num">79</div><div class="stat-lbl">Adult Lessons</div></div>
+      <div class="r d4"><div class="stat-num">17</div><div class="stat-lbl">Chapters</div></div>
+    </div>
+    <a href="#register" class="btn-w r" style="margin-top:48px">Claim Your Spot &mdash; Dehradun Pilot <span class="arrow">&rarr;</span></a>
+  </div>
+</section>
+
+<!-- ═══ FOR PARENTS ═══ -->
+<section class="sec bg-white" id="parents">
+  <div class="wrap">
+    <div class="parents-layout">
+      <!-- LEFT: heading + subheading + body + button -->
+      <div class="parents-left">
+        <h2 class="h-xl r" style="margin-bottom:12px">Your Child's Future Is Being Written.</h2>
+        <p class="body-lg r d1" style="font-style:italic;color:rgba(0,0,0,.45);margin-bottom:20px">Make sure they're the author.</p>
+        <p class="body-text r d2" style="margin-bottom:40px">Parents across India are waking up to the reality that grades alone won't get your child where they want to go. Next Gen Academy gives them the skills that universities notice and employers actually want: AI literacy, digital creativity, logical thinking, and the ability to build things.</p>
+        <a href="#register" class="btn-dark r d3">Register My Child <span class="arrow">&rarr;</span></a>
+      </div>
+      <!-- RIGHT: steps -->
+      <div class="parents-right">
+        <div class="steps-grid">
+          <div class="step-card r d1">
+            <div class="step-num-wrap"><div class="step-num-inner">01</div></div>
+            <div class="step-icon-wrap">&#x1F4DD;</div>
+            <p class="step-title">Register</p>
+            <p class="step-desc">Takes 2 minutes online. Pick your track and fill out a quick form.</p>
+          </div>
+          <div class="step-card r d2">
+            <div class="step-num-wrap"><div class="step-num-inner">02</div></div>
+            <div class="step-icon-wrap">&#x1F4E6;</div>
+            <p class="step-title">Get Onboarded</p>
+            <p class="step-desc">We send the welcome kit, schedule, and everything your child needs to start.</p>
+          </div>
+          <div class="step-card r d3">
+            <div class="step-num-wrap"><div class="step-num-inner">03</div></div>
+            <div class="step-icon-wrap">&#x1F680;</div>
+            <p class="step-title">Watch Them Grow</p>
+            <p class="step-desc">Weekly progress reports keep you in the loop every step of the way.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ QUIZ ═══ -->
+<section class="sec bg-gray" id="quiz">
+  <div class="wrap">
+    <div class="quiz-layout">
+      <!-- Left: copy -->
+      <div class="quiz-left r">
+        <div class="sec-tag" style="margin-bottom:20px">&#x1F3AE; Interactive</div>
+        <h2 class="quiz-left-title">Find Your<br>Learning Track.</h2>
+        <p class="quiz-left-body">Answer 3 quick questions and we'll instantly match you to the right program — Explorer, Builder, or Power Skills.</p>
+        <div class="quiz-stat-row">
+          <div class="quiz-stat"><span class="quiz-stat-n">3</span><span class="quiz-stat-l">Questions</span></div>
+          <div class="quiz-stat"><span class="quiz-stat-n">60s</span><span class="quiz-stat-l">To complete</span></div>
+          <div class="quiz-stat"><span class="quiz-stat-n">3</span><span class="quiz-stat-l">Tracks matched</span></div>
+        </div>
+      </div>
+      <!-- Right: quiz card -->
+      <div class="quiz-box r d2">
+        <div class="quiz-prog" id="qProg"><div class="quiz-pip active"></div><div class="quiz-pip"></div><div class="quiz-pip"></div></div>
+        <div id="qArea">
+          <p class="quiz-q" id="qQ"></p>
+          <div class="quiz-opts" id="qOpts"></div>
+        </div>
+        <div class="quiz-result" id="qRes">
+          <span class="quiz-result-icon" id="rIcon"></span>
+          <p class="quiz-result-h" id="rTitle"></p>
+          <p class="quiz-result-p" id="rDesc"></p>
+          <a href="#programs" class="btn-w btn-sm" style="margin-top:4px;display:inline-flex">Start Your Journey <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section class="sec bg-white" id="how">
+  <div class="wrap" style="text-align:center">
+    <h2 class="h-xl r" style="margin-bottom:8px">Simple to Start.<br>Transformative to Finish.</h2>
+    <div class="how-stepper" id="howStepper">
+      <div class="how-step-item st-active r d1" id="hStep0">
+        <div class="how-step-circle"><span class="how-step-check">&#10003;</span></div>
+        <div class="how-step-body">
+          <div class="how-n">Step 1</div>
+          <p class="how-title">Pick Your Path</p>
+          <p class="how-status" id="hStat0">Completed</p>
+          <p class="how-desc">Choose Explorer (5–8), Builder (9–12), or Power Skills (Adults). Not sure? Take the quiz!</p>
+        </div>
+      </div>
+      <div class="how-connector r d1"><div class="how-conn-track"><div class="how-conn-fill" id="hConn0"></div></div></div>
+      <div class="how-step-item st-pending r d2" id="hStep1">
+        <div class="how-step-circle"><span class="how-step-check">&#10003;</span></div>
+        <div class="how-step-body">
+          <div class="how-n">Step 2</div>
+          <p class="how-title">Register in Minutes</p>
+          <p class="how-status" id="hStat1">Pending</p>
+          <p class="how-desc">Fill out a quick form for yourself, your child, or your entire school. We confirm within 24 hours.</p>
+        </div>
+      </div>
+      <div class="how-connector r d2"><div class="how-conn-track"><div class="how-conn-fill" id="hConn1"></div></div></div>
+      <div class="how-step-item st-pending r d3" id="hStep2">
+        <div class="how-step-circle"><span class="how-step-check">&#10003;</span></div>
+        <div class="how-step-body">
+          <div class="how-n">Step 3</div>
+          <p class="how-title">Start Learning</p>
+          <p class="how-status" id="hStat2">Pending</p>
+          <p class="how-desc">Live sessions, on-demand content, projects, quizzes, and game-based challenges — all in one place.</p>
+        </div>
+      </div>
+      <div class="how-connector r d3"><div class="how-conn-track"><div class="how-conn-fill" id="hConn2"></div></div></div>
+      <div class="how-step-item st-pending r d4" id="hStep3">
+        <div class="how-step-circle"><span class="how-step-check">&#10003;</span></div>
+        <div class="how-step-body">
+          <div class="how-n">Step 4</div>
+          <p class="how-title">Earn &amp; Grow</p>
+          <p class="how-status" id="hStat3">Pending</p>
+          <p class="how-desc">Get certified, build a portfolio, unlock new levels, and take your skills into the real world.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CERTIFICATES ═══ -->
+<section class="sec bg-gray">
+  <div class="wrap" style="text-align:center">
+    <h2 class="h-xl r" style="margin-bottom:12px">Learn It. Build It. Prove It.</h2>
+    <p class="body-text r d1" style="max-width:560px;margin:0 auto">Every Next Gen Academy student earns a verified digital certificate upon completion &mdash; recognised by schools, universities, and employers. Our unique badge system celebrates progress at every milestone.</p>
+    <div class="cert-grid">
+      <div class="cert-card cert-card-img r d1" style="background:url('images/badges-bg.jpg') center/cover no-repeat;position:relative;overflow:hidden;min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:32px 28px">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.72) 0%,rgba(0,0,0,.18) 60%,rgba(0,0,0,.0) 100%)"></div>
+        <div style="position:relative;z-index:1;text-align:center">
+          <p class="cert-title" style="color:#fff;margin-bottom:4px">Module Badges</p>
+          <p class="cert-desc" style="color:rgba(255,255,255,.7)">Earned after each chapter</p>
+        </div>
+      </div>
+      <div class="cert-card cert-card-img r d2" style="background:url('images/certificate-bg.jpg') center/cover no-repeat;position:relative;overflow:hidden;min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:32px 28px">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.72) 0%,rgba(0,0,0,.18) 60%,rgba(0,0,0,.0) 100%)"></div>
+        <div style="position:relative;z-index:1;text-align:center">
+          <p class="cert-title" style="color:#fff;margin-bottom:4px">Course Certificate</p>
+          <p class="cert-desc" style="color:rgba(255,255,255,.7)">Issued on completion</p>
+        </div>
+      </div>
+      <div class="cert-card cert-card-img r d3" style="background:url('images/global-recognition-bg.jpg') center/cover no-repeat;position:relative;overflow:hidden;min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:32px 28px">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.72) 0%,rgba(0,0,0,.18) 60%,rgba(0,0,0,.0) 100%)"></div>
+        <div style="position:relative;z-index:1;text-align:center">
+          <p class="cert-title" style="color:#fff;margin-bottom:4px">Global Recognition</p>
+          <p class="cert-desc" style="color:rgba(255,255,255,.7)">Digital, shareable, verifiable</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SCHOOL REGISTRATION FORM ═══ -->
+<section class="sec bg-white" id="register">
+  <div class="wrap">
+    <div class="schools-grid">
+      <div class="r">
+        <div class="sec-tag" style="margin-bottom:20px"><span class="dot"></span>Apply Now</div>
+        <h2 class="h-xl" style="margin-bottom:16px">Register Your School<br>or Institute</h2>
+        <p class="body-text" style="margin-bottom:24px">Partner with us for the Dehradun Summer 2026 pilot. Limited spots available. Fill out the form and we'll get back to you within 24 hours.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:32px">
+          <div style="display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(0,0,0,.6)"><span style="color:#4ade80;font-size:1rem">&#10003;</span>Response within 24 hours</div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(0,0,0,.6)"><span style="color:#4ade80;font-size:1rem">&#10003;</span>Custom group pricing available</div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(0,0,0,.6)"><span style="color:#4ade80;font-size:1rem">&#10003;</span>Full teacher orientation provided</div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(0,0,0,.6)"><span style="color:#4ade80;font-size:1rem">&#10003;</span>Ready-to-deploy curriculum included</div>
+        </div>
+      </div>
+      <div class="r d2">
+        <div class="form-card">
+          <h3>Apply for the Pilot</h3>
+          <p>Summer 2026 &bull; Dehradun &bull; Limited Seats</p>
+          <form id="schoolPilotForm" action="https://sarabloh.us8.list-manage.com/subscribe/post?u=c9c44087154a88a5124c5b01c&amp;id=abf809d1f7&amp;f_id=006a3ae3f0" method="post" novalidate>
+            <div class="form-grid">
+              <div class="fg"><label>School / Institution</label><input type="text" name="MMERGE10" placeholder="e.g. Delhi Public School" required></div>
+              <div class="fg"><label>Contact Person</label><input type="text" name="MMERGE11" placeholder="Full name" required></div>
+              <div class="fg"><label>Email</label><input type="email" name="EMAIL" placeholder="email@school.com" required></div>
+              <div class="fg"><label>Phone</label><input type="tel" name="PHONE" placeholder="+91 98765 43210" required></div>
+              <div class="fg"><label>City</label><input type="text" name="MMERGE12" placeholder="e.g. Dehradun" required></div>
+              <div class="fg"><label>Students (approx.)</label><input type="number" name="MMERGE13" placeholder="e.g. 150"></div>
+              <div class="fg full"><label>Grade Level</label><select name="MMERGE14"><option value="">Select grade level</option><option value="Grades 5-8">Grades 5&ndash;8</option><option value="Grades 9-12">Grades 9&ndash;12</option><option value="Both">Both</option></select></div>
+              <div class="fg full"><label>Message (optional)</label><textarea placeholder="Any questions or specific requirements..."></textarea></div>
+            </div>
+            <div aria-hidden="true" style="position:absolute;left:-5000px">
+              <input type="text" name="b_c9c44087154a88a5124c5b01c_abf809d1f7" tabindex="-1" value="">
+            </div>
+            <button type="submit" class="form-submit">Apply for the Pilot</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="sec bg-gray" id="faq">
+  <div class="wrap">
+    <h2 class="h-xl r" style="text-align:center;margin-bottom:0">Got Questions?<br>We've Got Answers.</h2>
+    <div class="faq-wrap">
+      <div class="faq-item r"><button class="faq-btn" onclick="faq(this)">Do students need prior coding or tech experience?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-body"><div class="faq-body-inner">Absolutely not. Our programs are designed from the ground up for beginners. If you can use a smartphone, you can start here.</div></div></div>
+      <div class="faq-item r d1"><button class="faq-btn" onclick="faq(this)">Is this online, offline, or both?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-body"><div class="faq-body-inner">The Dehradun pilot will include in-person and hybrid options. Our adult track is fully online and self-paced.</div></div></div>
+      <div class="faq-item r d2"><button class="faq-btn" onclick="faq(this)">How can a school register a batch of students?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-body"><div class="faq-body-inner">Fill out our school registration form and our team will reach out within 24 hours to walk you through group enrollment and pricing.</div></div></div>
+      <div class="faq-item r"><button class="faq-btn" onclick="faq(this)">What age is the Explorer Track for?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-body"><div class="faq-body-inner">The Explorer Track is designed for students in Grades 5&ndash;8, typically ages 10&ndash;14.</div></div></div>
+      <div class="faq-item r"><button class="faq-btn" onclick="faq(this)">Is the adult course in English?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-body"><div class="faq-body-inner">Yes. Future language options including Hindi are planned post-pilot.</div></div></div>
+      <div class="faq-item r"><button class="faq-btn" onclick="faq(this)">What is the duration of each program?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-body"><div class="faq-body-inner">Explorer &amp; Builder Tracks: 8&ndash;12 weeks (flexible scheduling). Power Skills Track: Self-paced, typically completed in 3&ndash;6 months.</div></div></div>
+      <div class="faq-item r"><button class="faq-btn" onclick="faq(this)">Will there be a global version after Dehradun?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-body"><div class="faq-body-inner">Yes &mdash; Dehradun is our pilot city. After the summer cohort, we are expanding globally.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section class="sec final-cta">
+  <div class="wrap">
+    <div class="cta-box r">
+      <div class="cta-box-inner">
+        <h2 class="h-xl r">The Next Generation<br>Starts Here. Start Today.</h2>
+        <p class="body-lg r d1">Whether you're a student, a parent, a school, or a professional &mdash;<br>there's a seat waiting for you at Next Gen Academy.</p>
+        <div class="cta-btns r d2">
+          <a href="#register" class="btn-w">Register as Student / Parent <span class="arrow">&rarr;</span></a>
+          <a href="#schools" class="btn-ghost">Register as a School <span class="arrow">&rarr;</span></a>
+          <a href="#adults" class="btn-w">Join the Adult Track <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="r">
+        <div class="footer-brand-logo">
+          <img src="images/nga-logo.png" alt="Next Gen Academy" style="height:28px;width:auto;display:block">
+        </div>
+        <p class="footer-tagline">They're already curious. We just add AI.</p>
+      </div>
+      <div class="r d2">
+        <h5>Navigation</h5>
+        <div class="footer-links">
+          <a href="#hero">Home</a>
+          <a href="#programs">Programs</a>
+          <a href="#schools">For Schools</a>
+          <a href="#about">About Us</a>
+          <a href="#faq">FAQ</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+      <div class="r d3">
+        <h5>Contact</h5>
+        <div class="footer-contact">
+          <a href="mailto:connect@nxtgenedu.academy">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M2 4l6 5 6-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            connect@nxtgenedu.academy
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom r">
+      <p class="footer-copy">&copy; 2025 Next Gen Academy. All Rights Reserved.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M13.6 1H2.4C1.6 1 1 1.6 1 2.4v11.2c0 .8.6 1.4 1.4 1.4h11.2c.8 0 1.4-.6 1.4-1.4V2.4c0-.8-.6-1.4-1.4-1.4zM5.2 13H3V6.3h2.2V13zM4.1 5.4c-.7 0-1.3-.6-1.3-1.3s.6-1.3 1.3-1.3 1.3.6 1.3 1.3-.6 1.3-1.3 1.3zM13 13h-2.2V9.7c0-.8 0-1.8-1.1-1.8s-1.3.9-1.3 1.7V13H6.2V6.3h2.1v.9c.3-.6 1-1.1 2.1-1.1 2.2 0 2.6 1.5 2.6 3.4V13z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav state
+const nav=document.getElementById('navbar');
+const navLogo=document.getElementById('navLogo');
+const navLinks=document.getElementById('navLinks');
+const navCta=document.getElementById('navCta');
+const navHam=document.getElementById('navHam');
+const heroEl=document.getElementById('hero');
+
+const io=new IntersectionObserver(([e])=>{
+  const onHero=e.isIntersecting;
+  nav.className='nav '+(onHero?'dark-mode':'light');
+  navLogo.className='nav-logo '+(onHero?'on-dark':'');
+  navLinks.className='nav-links '+(onHero?'on-dark':'');
+  navCta.className='nav-cta '+(onHero?'on-dark':'');
+  navHam.className='nav-ham '+(onHero?'on-dark':'')+(navHam.classList.contains('open')?' open':'');
+},{threshold:0.05});
+io.observe(heroEl);
+
+// Mobile menu
+const mobMenu=document.getElementById('mobMenu');
+navHam.addEventListener('click',()=>{
+  navHam.classList.toggle('open');
+  mobMenu.classList.toggle('open');
+  document.body.style.overflow=mobMenu.classList.contains('open')?'hidden':'';
+});
+function closeMob(){navHam.classList.remove('open');mobMenu.classList.remove('open');document.body.style.overflow='';}
+
+// Reveal on scroll
+const rObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')});
+},{threshold:0.07,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.r').forEach(el=>rObs.observe(el));
+
+// FAQ
+function faq(btn){
+  const item=btn.closest('.faq-item');
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// Quiz
+const Qs=[
+  {q:'Pick your superpower:',opts:[{t:'🧠 Problem Solver',s:[1,0,0]},{t:'🎨 Creative Maker',s:[1,0,0]},{t:'💰 Business Brain',s:[0,0,1]},{t:'🔬 Tech Explorer',s:[0,1,0]}]},
+  {q:'Your dream project is:',opts:[{t:'Build an app',s:[0,1,0]},{t:'Start a business',s:[0,0,1]},{t:'Make a YouTube channel',s:[1,0,0]},{t:'Invest in crypto',s:[0,0,1]}]},
+  {q:'How do you feel about robots?',opts:[{t:'❤️ Love them',s:[0,1,0]},{t:'😰 Scared of them',s:[1,0,0]},{t:'🔧 Want to BUILD them',s:[0,1,0]},{t:'🤔 What\'s a robot?',s:[1,0,0]}]}
+];
+const Rs=[
+  {icon:'🧭',title:"You're an Explorer!",desc:'The Explorer Track (Grades 5–8) is built for your curious, creative mind.'},
+  {icon:'🔧',title:"You're a Builder!",desc:'The Builder Track (Grades 9–12) matches your drive to create and innovate.'},
+  {icon:'⚡',title:"You're a Power Player!",desc:'The Power Skills Track is your launch pad to the future of work.'}
+];
+let cQ=0,sc=[0,0,0];
+function renderQ(){
+  const q=Qs[cQ];
+  document.getElementById('qQ').textContent=q.q;
+  const el=document.getElementById('qOpts');el.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const b=document.createElement('button');b.className='quiz-opt';b.textContent=o.t;
+    b.onclick=()=>pick(i);el.appendChild(b);
+  });
+  document.querySelectorAll('.quiz-pip').forEach((p,i)=>{
+    p.className='quiz-pip';
+    if(i<cQ)p.classList.add('done');
+    if(i===cQ)p.classList.add('active');
+  });
+}
+function pick(i){
+  Qs[cQ].opts[i].s.forEach((v,j)=>sc[j]+=v);
+  document.querySelectorAll('.quiz-opt').forEach((b,j)=>b.classList.toggle('sel',j===i));
+  setTimeout(()=>{cQ++;cQ<Qs.length?renderQ():showRes()},350);
+}
+function showRes(){
+  const m=sc.indexOf(Math.max(...sc));
+  const r=Rs[m];
+  document.getElementById('qArea').style.display='none';
+  const el=document.getElementById('qRes');el.classList.add('on');
+  document.getElementById('rIcon').textContent=r.icon;
+  document.getElementById('rTitle').textContent=r.title;
+  document.getElementById('rDesc').textContent=r.desc;
+  document.querySelectorAll('.quiz-pip').forEach(p=>p.classList.add('done'));
+}
+renderQ();
+
+// ── SCHOOL FORM — Mailchimp background submit + inline success UI ──
+(function(){
+  const form = document.getElementById('schoolPilotForm');
+  if(!form) return;
+
+  let reqId = 0;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!form.reportValidity()) return;
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if(submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'Submitting...'; }
+
+    const baseAction = form.getAttribute('action') || '';
+    const url = baseAction.replace('/post?','/post-json?');
+    const cbName = 'mcCallback' + (++reqId) + '_' + Date.now();
+    const qs = new URLSearchParams(new FormData(form));
+    qs.append('c', cbName);
+
+    const script = document.createElement('script');
+    script.src = url + '&' + qs.toString();
+
+    let settled = false;
+    const cleanup = function(){
+      if(window[cbName]) delete window[cbName];
+      if(script.parentNode) script.parentNode.removeChild(script);
+    };
+    const setBtnBack = function(){
+      if(submitBtn){ submitBtn.disabled = false; submitBtn.textContent = 'Apply for the Pilot'; }
+    };
+
+    window[cbName] = function(resp){
+      settled = true;
+      cleanup();
+      const ok = resp && resp.result === 'success';
+      if(ok){
+        const card = form.closest('.form-card');
+        if(card){
+          const h3 = card.querySelector('h3');
+          if(h3) h3.textContent = 'Thank you!';
+        }
+        form.innerHTML = "<p style='font-size:15px;color:rgba(0,0,0,.6);padding:20px 0'>We've received your application and will reach out within 24 hours.</p>";
+        return;
+      }
+      alert((resp && resp.msg ? String(resp.msg).replace(/<[^>]*>/g,'') : 'Submission failed. Please try again.'));
+      setBtnBack();
+    };
+
+    script.onerror = function(){
+      if(settled) return;
+      cleanup();
+      alert('Submission failed. Please check your connection and try again.');
+      setBtnBack();
+    };
+
+    document.body.appendChild(script);
+  });
+})();
+
+// ── HOW IT WORKS — loop stepper animation ──
+(function(){
+  const steps = [0,1,2,3].map(i=>document.getElementById('hStep'+i));
+  const stats = [0,1,2,3].map(i=>document.getElementById('hStat'+i));
+  const conns = [0,1,2].map(i=>document.getElementById('hConn'+i));
+  const statLabels = {done:'Completed',active:'In Progress',pending:'Pending'};
+  const connColors = {green:'#16a34a',blue:'#3b82f6'};
+
+  // phases: array of [step0state, step1state, step2state, step3state]
+  const phases = [
+    ['active','pending','pending','pending'],
+    ['done','active','pending','pending'],
+    ['done','done','active','pending'],
+    ['done','done','done','active'],
+    ['done','done','done','done'],
+  ];
+  const delays = [850,850,850,850,700];
+  let phase = 0, timer = null;
+
+  function applyPhase(idx){
+    const st = phases[idx];
+    steps.forEach((el,i)=>{
+      el.className = el.className.replace(/st-\w+/,'st-'+st[i]);
+      stats[i].textContent = statLabels[st[i]];
+    });
+    // connector 0: between step0 and step1
+    // fill green if step0=done, blue if step0=active
+    conns.forEach((c,i)=>{
+      const left = st[i], right = st[i+1];
+      if(left==='done'){c.style.background=connColors.green;c.style.transform='scaleX(1)';}
+      else if(left==='active'&&right==='pending'){c.style.background=connColors.blue;c.style.transform='scaleX(.4)';}
+      else{c.style.transform='scaleX(0)';}
+    });
+  }
+
+  function tick(){
+    applyPhase(phase);
+    const d = delays[phase];
+    phase = (phase+1) % phases.length;
+    if(phase===0){
+      timer = setTimeout(()=>{
+        // instant reset
+        conns.forEach(c=>{c.style.transition='none';c.style.transform='scaleX(0)';});
+        steps.forEach((el,i)=>{el.className=el.className.replace(/st-\w+/,'st-pending');stats[i].textContent='Pending';});
+        setTimeout(()=>{
+          conns.forEach(c=>{c.style.transition='transform .42s cubic-bezier(.22,1,.36,1)';});
+          timer = setTimeout(tick, 180);
+        },80);
+      }, d);
+    } else {
+      timer = setTimeout(tick, d);
+    }
+  }
+
+  // Start after page settle
+  function startWhenVisible(){
+    const stepper = document.getElementById('howStepper');
+    if(!stepper) return;
+    const obs = new IntersectionObserver(([e])=>{
+      if(e.isIntersecting){ obs.disconnect(); setTimeout(tick, 250); }
+    },{threshold:0.3});
+    obs.observe(stepper);
+  }
+  startWhenVisible();
+})();
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const h=a.getAttribute('href');
+    if(!h||h==='#')return;
+    try{const t=document.querySelector(h);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}}catch(err){}
+  });
+});
+</script>
+</body>
+</html>
