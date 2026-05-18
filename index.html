@@ -101,6 +101,18 @@ input,textarea,select{font-family:inherit}
 .arrow{transition:transform .2s;display:inline-block}
 a:hover .arrow{transform:translateX(3px)}
 
+/* ── SPONSOR STRIP ── */
+.sponsor-strip{position:relative;z-index:60;margin-top:0px;padding-top:60px ;background:#101114;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);overflow:hidden}
+.sponsor-track{display:flex;align-items:center;gap:26px;white-space:nowrap;padding:14px 0;animation:sponsorScroll 22s linear infinite}
+.sponsor-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.9)}
+.sponsor-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;flex-shrink:0}
+.sponsor-logo{height:58px;width:auto;display:block;opacity:.95}
+.sponsor-text{font-size:14px;font-weight:600;letter-spacing:-.01em;color:rgba(255,255,255,.88)}
+@keyframes sponsorScroll{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
+
 /* ── SEC LABELS / TAGS ── */
 .sec-tag{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;background:rgba(0,0,0,.04);border-radius:999px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(0,0,0,.6);margin-bottom:20px}
 .sec-tag .dot{width:5px;height:5px;background:#4ade80;border-radius:50%}
@@ -160,7 +172,7 @@ a:hover .arrow{transform:translateX(3px)}
 .svc-price-sym{font-size:22px;font-weight:700;color:rgba(0,0,0,.9);letter-spacing:-.02em;margin-top:6px}
 .svc-stat-num{font-size:48px;font-weight:800;letter-spacing:-.04em;color:rgba(0,0,0,.9);line-height:1}
 .svc-price-per{font-size:13px;color:rgba(0,0,0,.45);letter-spacing:-.01em;align-self:flex-end;padding-bottom:5px}
-.svc-stat-label{font-size:12px;color:rgba(0,0,0,.4);letter-spacing:.01em;margin-top:5px}
+.svc-stat-label{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:rgba(0,0,0,.72);letter-spacing:.01em;margin-top:14px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.72);border:1px solid rgba(0,0,0,.08);box-shadow:0 2px 10px rgba(0,0,0,.04)}
 .svc-card-btn{display:block;width:100%;padding:13px;background:rgba(0,0,0,.9);color:#fff;border-radius:8px;font-size:14px;font-weight:600;letter-spacing:-.01em;text-align:center;margin-top:20px;transition:background .2s}
 .svc-card-btn:hover{background:rgba(0,0,0,.75)}
 .svc-card-btn.featured-btn{background:rgba(0,0,0,.9)}
@@ -282,6 +294,21 @@ a:hover .arrow{transform:translateX(3px)}
 .faq-body{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.16,1,.3,1)}
 .faq-item.open .faq-body{max-height:300px}
 .faq-body-inner{padding-bottom:20px;font-size:14px;color:rgba(0,0,0,.6);line-height:1.65;letter-spacing:-.01em}
+
+/* ── MEDIA COVERAGE ── */
+.media-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:36px}
+.media-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:transform .26s cubic-bezier(.16,1,.3,1),box-shadow .26s cubic-bezier(.16,1,.3,1),border-color .2s}
+.media-src{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(0,0,0,.45)}
+.media-title{font-size:18px;font-weight:700;letter-spacing:-.02em;color:rgba(0,0,0,.9);line-height:1.3;transition:transform .26s cubic-bezier(.16,1,.3,1)}
+.media-desc{font-size:14px;color:rgba(0,0,0,.58);line-height:1.6}
+.media-link{margin-top:auto;font-size:14px;font-weight:600;color:rgba(0,0,0,.9);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:transform .26s cubic-bezier(.16,1,.3,1),color .2s}
+.media-card::after{content:'';position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,#4ade80,#22c55e);transform:scaleX(0);transform-origin:left center;transition:transform .26s cubic-bezier(.16,1,.3,1)}
+.media-card:hover,.media-card:focus-visible{transform:translateY(-5px);box-shadow:0 14px 30px rgba(0,0,0,.08);border-color:rgba(0,0,0,.2)}
+.media-card:hover .media-title,.media-card:focus-visible .media-title{transform:translateX(2px)}
+.media-card:hover .media-link,.media-card:focus-visible .media-link{transform:translateX(4px);color:#166534}
+.media-card:hover::after,.media-card:focus-visible::after{transform:scaleX(1)}
+.media-card.placeholder{background:rgba(0,0,0,.03);border-style:dashed}
+.media-card.placeholder::after{display:none}
 
 /* ── SCHOOL FORM ── */
 .form-card{background:var(--gray);border-radius:4px;padding:40px 36px}
@@ -416,6 +443,7 @@ a:hover .arrow{transform:translateX(3px)}
   }
   .r{opacity:1!important;transform:none!important;transition:none!important;will-change:auto!important}
   .hero-anim{opacity:1!important;animation:none!important}
+  .sponsor-track{animation:none!important;justify-content:center;flex-wrap:wrap}
   @keyframes gradShift{0%,100%{background-position:0% 50%}}
 }
 
@@ -435,6 +463,7 @@ a:hover .arrow{transform:translateX(3px)}
   .parents-layout{grid-template-columns:1fr;gap:48px}
   .parents-left{align-items:flex-start}
   .parents-right .steps-grid{grid-template-columns:repeat(3,1fr)}
+  .sponsor-strip{margin-top:64px}
 }
 @media(max-width:768px){
   .wrap{padding:0 20px}
@@ -443,6 +472,7 @@ a:hover .arrow{transform:translateX(3px)}
   .nav-links,.nav-cta{display:none}
   .nav-ham{display:flex}
   .hero h1{font-size:42px}
+  .sponsor-strip{margin-top:64px}
   .hero-btns{flex-direction:column}
   .hero-btns a{text-align:center;justify-content:center}
   .services-grid{grid-template-columns:1fr}
@@ -451,6 +481,7 @@ a:hover .arrow{transform:translateX(3px)}
   .parents-left{align-items:center;text-align:center}
   .steps-grid{grid-template-columns:1fr;max-width:360px;margin:48px auto}.steps-grid::before{display:none}.step-card{padding:0 0 32px}
   .cert-grid{grid-template-columns:1fr;max-width:360px;margin:48px auto 0}
+  .media-grid{grid-template-columns:1fr}
   .how-stepper{max-width:380px;margin:48px auto 0}
   .stats-row{grid-template-columns:1fr 1fr;gap:24px}
   .quiz-opts{grid-template-columns:1fr}
@@ -632,6 +663,30 @@ a:hover .arrow{transform:translateX(3px)}
   <a href="#pilot" class="btn-dark" style="margin-top:12px" onclick="closeMob()">Join the Pilot</a>
 </div>
 
+<!-- ═══ SPONSOR STRIP ═══ -->
+<section class="sponsor-strip" aria-label="Sponsor announcement">
+  <div class="sponsor-track">
+    <img src="images/logorevealhero.png" alt="Next Gen Academy" class="sponsor-logo">
+    <span class="sponsor-chip"><span class="sponsor-dot"></span>Proud Sponsor</span>
+    <span class="sponsor-text">Proud Sponsor of Uttarakand Gold Cup 2026</span>
+    <img src="images/logorevealhero.png" alt="Next Gen Academy" class="sponsor-logo">
+    <span class="sponsor-chip"><span class="sponsor-dot"></span>Proud Sponsor</span>
+    <span class="sponsor-text">Proud Sponsor of Uttarakand Gold Cup 2026</span>
+    <img src="images/logorevealhero.png" alt="Next Gen Academy" class="sponsor-logo">
+    <span class="sponsor-chip"><span class="sponsor-dot"></span>Proud Sponsor</span>
+    <span class="sponsor-text">Proud Sponsor of Uttarakand Gold Cup 2026</span>
+    <img src="images/logorevealhero.png" alt="Next Gen Academy" class="sponsor-logo">
+    <span class="sponsor-chip"><span class="sponsor-dot"></span>Proud Sponsor</span>
+    <span class="sponsor-text">Proud Sponsor of Uttarakand Gold Cup 2026</span>
+    <img src="images/logorevealhero.png" alt="Next Gen Academy" class="sponsor-logo">
+    <span class="sponsor-chip"><span class="sponsor-dot"></span>Proud Sponsor</span>
+    <span class="sponsor-text">Proud Sponsor of Uttarakand Gold Cup 2026</span>
+    <img src="images/logorevealhero.png" alt="Next Gen Academy" class="sponsor-logo">
+    <span class="sponsor-chip"><span class="sponsor-dot"></span>Proud Sponsor</span>
+    <span class="sponsor-text">Proud Sponsor of Uttarakand Gold Cup 2026</span>
+  </div>
+</section>
+
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="hero">
   <div class="hero-bg"><div class="hero-bg-img"></div><div class="hero-overlay"></div></div>
@@ -684,6 +739,8 @@ a:hover .arrow{transform:translateX(3px)}
     <div class="services-head r">
       <h2 class="h-xl" style="margin-bottom:16px;white-space:nowrap">Choose Your Learning Path</h2>
       <p class="body-lg">Whether you're 12 or 42, there's a program built just for you.</p>
+      <p class="body-lg"></p>
+      <p class="body-lg">Need Group Access for Your Organization? Email Us</p>
     </div>
     <div class="services-grid">
 
@@ -698,7 +755,6 @@ a:hover .arrow{transform:translateX(3px)}
             <div class="svc-icon">&#x1F9ED;</div>
           </div>
           <div class="svc-stat">
-            <div class="svc-price"><span class="svc-price-sym">₹</span><span class="svc-stat-num">4,999</span><span class="svc-price-per">/ course</span></div>
             <p class="svc-stat-label">8 weeks &nbsp;·&nbsp; 6 modules</p>
           </div>
           <a href="#register" class="svc-card-btn">Enroll Now</a>
@@ -714,18 +770,17 @@ a:hover .arrow{transform:translateX(3px)}
         </div>
       </div>
 
-      <!-- Builder Track — featured -->
+      <!-- Innovator Track — featured -->
       <div class="svc-card r d2">
         <div class="svc-card-top">
           <div class="svc-card-header">
             <div>
-              <p class="svc-title">Builder Track</p>
-              <p class="svc-subtitle">Next Gen Builders &bull; Grades 9–12</p>
+              <p class="svc-title">Innovator Track</p>
+              <p class="svc-subtitle">Next Gen Innovators &bull; Grades 9–12</p>
             </div>
             <div class="svc-icon">&#x1F527;</div>
           </div>
           <div class="svc-stat">
-            <div class="svc-price"><span class="svc-price-sym">₹</span><span class="svc-stat-num">7,999</span><span class="svc-price-per">/ course</span></div>
             <p class="svc-stat-label">12 weeks &nbsp;·&nbsp; 10 modules</p>
           </div>
           <a href="#register" class="svc-card-btn featured-btn">Enroll Now</a>
@@ -752,7 +807,6 @@ a:hover .arrow{transform:translateX(3px)}
             <div class="svc-icon">&#x26A1;</div>
           </div>
           <div class="svc-stat">
-            <div class="svc-price"><span class="svc-price-sym">₹</span><span class="svc-stat-num">9,999</span><span class="svc-price-per">/ course</span></div>
             <p class="svc-stat-label">Self-paced &nbsp;·&nbsp; 79 lessons &nbsp;·&nbsp; 17 chapters</p>
           </div>
           <a href="#adults" class="svc-card-btn">Join the Track</a>
@@ -989,22 +1043,8 @@ a:hover .arrow{transform:translateX(3px)}
         <div class="form-card">
           <h3>Apply for the Pilot</h3>
           <p>Summer 2026 &bull; Dehradun &bull; Limited Seats</p>
-          <form id="schoolPilotForm" action="https://sarabloh.us8.list-manage.com/subscribe/post?u=c9c44087154a88a5124c5b01c&amp;id=abf809d1f7&amp;f_id=006a3ae3f0" method="post" novalidate>
-            <div class="form-grid">
-              <div class="fg"><label>School / Institution</label><input type="text" name="MMERGE10" placeholder="e.g. Delhi Public School" required></div>
-              <div class="fg"><label>Contact Person</label><input type="text" name="MMERGE11" placeholder="Full name" required></div>
-              <div class="fg"><label>Email</label><input type="email" name="EMAIL" placeholder="email@school.com" required></div>
-              <div class="fg"><label>Phone</label><input type="tel" name="PHONE" placeholder="+91 98765 43210" required></div>
-              <div class="fg"><label>City</label><input type="text" name="MMERGE12" placeholder="e.g. Dehradun" required></div>
-              <div class="fg"><label>Students (approx.)</label><input type="number" name="MMERGE13" placeholder="e.g. 150"></div>
-              <div class="fg full"><label>Grade Level</label><select name="MMERGE14"><option value="">Select grade level</option><option value="Grades 5-8">Grades 5&ndash;8</option><option value="Grades 9-12">Grades 9&ndash;12</option><option value="Both">Both</option></select></div>
-              <div class="fg full"><label>Message (optional)</label><textarea placeholder="Any questions or specific requirements..."></textarea></div>
-            </div>
-            <div aria-hidden="true" style="position:absolute;left:-5000px">
-              <input type="text" name="b_c9c44087154a88a5124c5b01c_abf809d1f7" tabindex="-1" value="">
-            </div>
-            <button type="submit" class="form-submit">Apply for the Pilot</button>
-          </form>
+          <a class="form-submit" href="https://docs.google.com/forms/d/e/1FAIpQLSdEdB_SXd8lK96b-fHUTWOJY0TR4IKbEPCfg89rtksAqaaIOQ/viewform" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none">Apply for the Pilot</a>
+          <p class="pilot-note" style="margin-top:14px">Takes 2 minutes &bull; Opens secure Google Form &bull; Response within 24 hours</p>
         </div>
       </div>
     </div>
@@ -1023,6 +1063,38 @@ a:hover .arrow{transform:translateX(3px)}
       <div class="faq-item r"><button class="faq-btn" onclick="faq(this)">Is the adult course in English?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-body"><div class="faq-body-inner">Yes. Future language options including Hindi are planned post-pilot.</div></div></div>
       <div class="faq-item r"><button class="faq-btn" onclick="faq(this)">What is the duration of each program?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-body"><div class="faq-body-inner">Explorer &amp; Builder Tracks: 8&ndash;12 weeks (flexible scheduling). Power Skills Track: Self-paced, typically completed in 3&ndash;6 months.</div></div></div>
       <div class="faq-item r"><button class="faq-btn" onclick="faq(this)">Will there be a global version after Dehradun?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-body"><div class="faq-body-inner">Yes &mdash; Dehradun is our pilot city. After the summer cohort, we are expanding globally.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MEDIA COVERAGE ═══ -->
+<section class="sec bg-white" id="media">
+  <div class="wrap">
+    <div class="services-head r">
+      <div>
+        <div class="sec-tag"><span class="dot"></span>In The Media</div>
+        <h2 class="h-xl">Media Coverage</h2>
+      </div>
+      <p class="body-text" style="max-width:560px">Stories, interviews, and press mentions about Next Gen Academy. More coverage is being added regularly.</p>
+    </div>
+    <div class="media-grid">
+      <a class="media-card r d1" href="https://dainik.bhaskar.com/pyjcInAld3b" target="_blank" rel="noopener noreferrer" aria-label="Read Dainik Bhaskar coverage">
+        <p class="media-src">Dainik Bhaskar</p>
+        <h3 class="media-title">नेक्स्ट जेन एकेडमी छात्रों को देगी आधुनिक तकनीक का ज्ञान</h3>
+        <p class="media-desc">Feature coverage highlighting Next Gen Academy's mission to bring modern technology learning to students.</p>
+        <span class="media-link">Read coverage &rarr;</span>
+      </a>
+      <a class="media-card r d2" href="https://www.facebook.com/share/v/18bC3zBVmf/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Watch Facebook media clip">
+        <p class="media-src">Uttarakhand Broadcast</p>
+        <h3 class="media-title">Media Clip: Next Gen Academy</h3>
+        <p class="media-desc">Short video coverage and social media mention related to the academy's launch and outreach.</p>
+        <span class="media-link">Watch clip &rarr;</span>
+      </a>
+      <article class="media-card placeholder r d3">
+        <p class="media-src">Coming Soon</p>
+        <h3 class="media-title">More press links on the way</h3>
+        <p class="media-desc">New media mentions and interviews will be published here as they go live.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -1169,65 +1241,6 @@ function showRes(){
   document.querySelectorAll('.quiz-pip').forEach(p=>p.classList.add('done'));
 }
 renderQ();
-
-// ── SCHOOL FORM — Mailchimp background submit + inline success UI ──
-(function(){
-  const form = document.getElementById('schoolPilotForm');
-  if(!form) return;
-
-  let reqId = 0;
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    if(!form.reportValidity()) return;
-
-    const submitBtn = form.querySelector('button[type="submit"]');
-    if(submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'Submitting...'; }
-
-    const baseAction = form.getAttribute('action') || '';
-    const url = baseAction.replace('/post?','/post-json?');
-    const cbName = 'mcCallback' + (++reqId) + '_' + Date.now();
-    const qs = new URLSearchParams(new FormData(form));
-    qs.append('c', cbName);
-
-    const script = document.createElement('script');
-    script.src = url + '&' + qs.toString();
-
-    let settled = false;
-    const cleanup = function(){
-      if(window[cbName]) delete window[cbName];
-      if(script.parentNode) script.parentNode.removeChild(script);
-    };
-    const setBtnBack = function(){
-      if(submitBtn){ submitBtn.disabled = false; submitBtn.textContent = 'Apply for the Pilot'; }
-    };
-
-    window[cbName] = function(resp){
-      settled = true;
-      cleanup();
-      const ok = resp && resp.result === 'success';
-      if(ok){
-        const card = form.closest('.form-card');
-        if(card){
-          const h3 = card.querySelector('h3');
-          if(h3) h3.textContent = 'Thank you!';
-        }
-        form.innerHTML = "<p style='font-size:15px;color:rgba(0,0,0,.6);padding:20px 0'>We've received your application and will reach out within 24 hours.</p>";
-        return;
-      }
-      alert((resp && resp.msg ? String(resp.msg).replace(/<[^>]*>/g,'') : 'Submission failed. Please try again.'));
-      setBtnBack();
-    };
-
-    script.onerror = function(){
-      if(settled) return;
-      cleanup();
-      alert('Submission failed. Please check your connection and try again.');
-      setBtnBack();
-    };
-
-    document.body.appendChild(script);
-  });
-})();
 
 // ── HOW IT WORKS — loop stepper animation ──
 (function(){
