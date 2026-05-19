@@ -104,6 +104,7 @@ a:hover .arrow{transform:translateX(3px)}
 /* ── SPONSOR STRIP ── */
 .sponsor-strip{position:relative;z-index:60;margin-top:0px;padding-top:60px ;background:#101114;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);overflow:hidden}
 .sponsor-track{display:flex;align-items:center;gap:26px;white-space:nowrap;padding:14px 0;animation:sponsorScroll 22s linear infinite}
+.sponsor-item{display:inline-flex;align-items:center;gap:14px;flex:0 0 auto}
 .sponsor-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.9)}
 .sponsor-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;flex-shrink:0}
 .sponsor-logo{height:58px;width:auto;display:block;opacity:.95}
@@ -660,7 +661,7 @@ a:hover .arrow{transform:translateX(3px)}
       <a href="#hero">Home</a>
       <a href="#programs">Our Programs</a>
       <a href="#schools">For Schools</a>
-      <a href="#adults">For Adults</a>
+      <a href="https://learn.nxtgenedu.academy/products/courses/Web3-AI">For Adults</a>
       <a href="#about">About</a>
       <a href="#register">Register</a>
     </nav>
@@ -672,7 +673,7 @@ a:hover .arrow{transform:translateX(3px)}
   <a href="#hero" onclick="closeMob()">Home</a>
   <a href="#programs" onclick="closeMob()">Our Programs</a>
   <a href="#schools" onclick="closeMob()">For Schools</a>
-  <a href="#adults" onclick="closeMob()">For Adults</a>
+  <a href="https://learn.nxtgenedu.academy/products/courses/Web3-AI" onclick="closeMob()">For Adults</a>
   <a href="#about" onclick="closeMob()">About</a>
   <a href="#register" onclick="closeMob()">Register</a>
   <a href="#pilot" class="btn-dark" style="margin-top:12px" onclick="closeMob()">Join the Pilot</a>
@@ -681,24 +682,36 @@ a:hover .arrow{transform:translateX(3px)}
 <!-- ═══ SPONSOR STRIP ═══ -->
 <section class="sponsor-strip" aria-label="Sponsor announcement">
   <div class="sponsor-track">
-    <img src="images/logorevealhero.png" alt="Next Gen Academy" class="sponsor-logo">
-    <span class="sponsor-chip"><span class="sponsor-dot"></span>Proud Sponsor</span>
-    <span class="sponsor-text">Proud Sponsor of Uttarakand Gold Cup 2026</span>
-    <img src="images/logorevealhero.png" alt="Next Gen Academy" class="sponsor-logo">
-    <span class="sponsor-chip"><span class="sponsor-dot"></span>Proud Sponsor</span>
-    <span class="sponsor-text">Proud Sponsor of Uttarakand Gold Cup 2026</span>
-    <img src="images/logorevealhero.png" alt="Next Gen Academy" class="sponsor-logo">
-    <span class="sponsor-chip"><span class="sponsor-dot"></span>Proud Sponsor</span>
-    <span class="sponsor-text">Proud Sponsor of Uttarakand Gold Cup 2026</span>
-    <img src="images/logorevealhero.png" alt="Next Gen Academy" class="sponsor-logo">
-    <span class="sponsor-chip"><span class="sponsor-dot"></span>Proud Sponsor</span>
-    <span class="sponsor-text">Proud Sponsor of Uttarakand Gold Cup 2026</span>
-    <img src="images/logorevealhero.png" alt="Next Gen Academy" class="sponsor-logo">
-    <span class="sponsor-chip"><span class="sponsor-dot"></span>Proud Sponsor</span>
-    <span class="sponsor-text">Proud Sponsor of Uttarakand Gold Cup 2026</span>
-    <img src="images/logorevealhero.png" alt="Next Gen Academy" class="sponsor-logo">
-    <span class="sponsor-chip"><span class="sponsor-dot"></span>Proud Sponsor</span>
-    <span class="sponsor-text">Proud Sponsor of Uttarakand Gold Cup 2026</span>
+    <div class="sponsor-item">
+      <img src="images/logorevealhero.png" alt="Next Gen Academy" class="sponsor-logo">
+      <span class="sponsor-chip"><span class="sponsor-dot"></span>Proud Sponsor</span>
+      <span class="sponsor-text">Proud Sponsor of Uttarakand Gold Cup 2026</span>
+    </div>
+    <div class="sponsor-item">
+      <img src="images/logorevealhero.png" alt="Next Gen Academy" class="sponsor-logo">
+      <span class="sponsor-chip"><span class="sponsor-dot"></span>Proud Sponsor</span>
+      <span class="sponsor-text">Proud Sponsor of Uttarakand Gold Cup 2026</span>
+    </div>
+    <div class="sponsor-item">
+      <img src="images/logorevealhero.png" alt="Next Gen Academy" class="sponsor-logo">
+      <span class="sponsor-chip"><span class="sponsor-dot"></span>Proud Sponsor</span>
+      <span class="sponsor-text">Proud Sponsor of Uttarakand Gold Cup 2026</span>
+    </div>
+    <div class="sponsor-item">
+      <img src="images/logorevealhero.png" alt="Next Gen Academy" class="sponsor-logo">
+      <span class="sponsor-chip"><span class="sponsor-dot"></span>Proud Sponsor</span>
+      <span class="sponsor-text">Proud Sponsor of Uttarakand Gold Cup 2026</span>
+    </div>
+    <div class="sponsor-item">
+      <img src="images/logorevealhero.png" alt="Next Gen Academy" class="sponsor-logo">
+      <span class="sponsor-chip"><span class="sponsor-dot"></span>Proud Sponsor</span>
+      <span class="sponsor-text">Proud Sponsor of Uttarakand Gold Cup 2026</span>
+    </div>
+    <div class="sponsor-item">
+      <img src="images/logorevealhero.png" alt="Next Gen Academy" class="sponsor-logo">
+      <span class="sponsor-chip"><span class="sponsor-dot"></span>Proud Sponsor</span>
+      <span class="sponsor-text">Proud Sponsor of Uttarakand Gold Cup 2026</span>
+    </div>
   </div>
 </section>
 
@@ -711,7 +724,7 @@ a:hover .arrow{transform:translateX(3px)}
     <h1 class="hero-anim d1">Learning Just<br>Levelled Up.</h1>
     <p class="hero-desc hero-anim d2">Future-ready skills for students, professionals, and everyone in between. From AI and coding to critical thinking &mdash; we make the next generation unstoppable.</p>
     <div class="hero-btns hero-anim d3">
-      <a href="#programs" class="btn-w">I'm a Student / Parent <span class="arrow">&rarr;</span></a>
+      <a href="https://learn.nxtgenedu.academy/" class="btn-w">I'm a Student / Parent <span class="arrow">&rarr;</span></a>
       <a href="#schools" class="btn-ghost">I Represent a School</a>
     </div>
   </div>
@@ -764,7 +777,7 @@ a:hover .arrow{transform:translateX(3px)}
         <div class="svc-card-top">
           <div class="svc-card-header">
             <div>
-              <p class="svc-title">Explorer Track</p>
+              <p class="svc-title">Adventurers Track</p>
               <p class="svc-subtitle">Young Explorers &bull; Grades 5–8</p>
             </div>
             <div class="svc-icon">&#x1F9ED;</div>
@@ -772,7 +785,7 @@ a:hover .arrow{transform:translateX(3px)}
           <div class="svc-stat">
             <p class="svc-stat-label">8 weeks &nbsp;·&nbsp; 6 modules</p>
           </div>
-          <a href="#register" class="svc-card-btn">Enroll Now</a>
+          <a href="https://learn.nxtgenedu.academy/products/courses/ai-adventurers" class="svc-card-btn">Enroll Now</a>
           <a href="mailto:team@nextgenacademy.in?subject=School%20and%20Team%20Enrollment" class="svc-sub-link">For Schools &amp; Teams &rarr; Email us</a>
         </div>
         <div class="svc-card-bottom">
@@ -799,7 +812,7 @@ a:hover .arrow{transform:translateX(3px)}
           <div class="svc-stat">
             <p class="svc-stat-label">12 weeks &nbsp;·&nbsp; 10 modules</p>
           </div>
-          <a href="#register" class="svc-card-btn featured-btn">Enroll Now</a>
+          <a href="https://learn.nxtgenedu.academy/products/courses/ai-innovators" class="svc-card-btn featured-btn">Enroll Now</a>
           <a href="mailto:team@nextgenacademy.in?subject=School%20and%20Team%20Enrollment" class="svc-sub-link">For Schools &amp; Teams &rarr; Email us</a>
         </div>
         <div class="svc-card-bottom">
@@ -826,7 +839,7 @@ a:hover .arrow{transform:translateX(3px)}
           <div class="svc-stat">
             <p class="svc-stat-label">Self-paced &nbsp;·&nbsp; 79 lessons &nbsp;·&nbsp; 17 chapters</p>
           </div>
-          <a href="#adults" class="svc-card-btn">Join the Track</a>
+          <a href="https://learn.nxtgenedu.academy/products/courses/Web3-AI" class="svc-card-btn">Join the Track</a>
           <a href="mailto:team@nextgenacademy.in?subject=School%20and%20Team%20Enrollment" class="svc-sub-link">For Schools &amp; Teams &rarr; Email us</a>
         </div>
         <div class="svc-card-bottom">
@@ -1125,9 +1138,9 @@ a:hover .arrow{transform:translateX(3px)}
         <h2 class="h-xl r">The Next Generation<br>Starts Here. Start Today.</h2>
         <p class="body-lg r d1">Whether you're a student, a parent, a school, or a professional &mdash;<br>there's a seat waiting for you at Next Gen Academy.</p>
         <div class="cta-btns r d2">
-          <a href="#register" class="btn-w">Register as Student / Parent <span class="arrow">&rarr;</span></a>
+          <a href="https://learn.nxtgenedu.academy/" class="btn-w">Register as Student / Parent <span class="arrow">&rarr;</span></a>
           <a href="#schools" class="btn-ghost">Register as a School <span class="arrow">&rarr;</span></a>
-          <a href="#adults" class="btn-w">Join the Adult Track <span class="arrow">&rarr;</span></a>
+          <a href="https://learn.nxtgenedu.academy/products/courses/Web3-AI" class="btn-w">Join the Adult Track <span class="arrow">&rarr;</span></a>
         </div>
       </div>
     </div>
