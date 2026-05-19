@@ -45,7 +45,7 @@ input,textarea,select{font-family:inherit}
 
 /* ── NAV ── */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;display:flex;align-items:center;transition:background .25s,border-color .25s}
-.nav.light{background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.07)}
+.nav.light{background:rgba(230,230,230,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.1)}
 .nav.dark-mode{background:transparent}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:var(--container);margin:0 auto;padding:0 40px}
 .nav-logo{display:flex;align-items:center;gap:12px;font-size:15px;font-weight:700;letter-spacing:-.02em;color:rgba(0,0,0,.9)}
@@ -176,6 +176,8 @@ a:hover .arrow{transform:translateX(3px)}
 .svc-card-btn{display:block;width:100%;padding:13px;background:rgba(0,0,0,.9);color:#fff;border-radius:8px;font-size:14px;font-weight:600;letter-spacing:-.01em;text-align:center;margin-top:20px;transition:background .2s}
 .svc-card-btn:hover{background:rgba(0,0,0,.75)}
 .svc-card-btn.featured-btn{background:rgba(0,0,0,.9)}
+.svc-sub-link{display:inline-flex;align-items:center;gap:4px;margin-top:14px;font-size:13px;font-weight:600;letter-spacing:-.01em;color:rgba(0,0,0,.62);transition:color .2s,transform .2s}
+.svc-sub-link:hover{color:rgba(0,0,0,.9);transform:translateX(2px)}
 .svc-card-bottom{padding:24px 28px 28px}
 .svc-feat-label{font-size:13px;font-weight:700;letter-spacing:-.01em;color:rgba(0,0,0,.9);margin-bottom:14px}
 .svc-feat-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(0,0,0,.7);letter-spacing:-.01em;line-height:1.45;padding:5px 0}
@@ -463,7 +465,6 @@ a:hover .arrow{transform:translateX(3px)}
   .parents-layout{grid-template-columns:1fr;gap:48px}
   .parents-left{align-items:flex-start}
   .parents-right .steps-grid{grid-template-columns:repeat(3,1fr)}
-  .sponsor-strip{margin-top:64px}
 }
 @media(max-width:768px){
   .wrap{padding:0 20px}
@@ -472,7 +473,6 @@ a:hover .arrow{transform:translateX(3px)}
   .nav-links,.nav-cta{display:none}
   .nav-ham{display:flex}
   .hero h1{font-size:42px}
-  .sponsor-strip{margin-top:64px}
   .hero-btns{flex-direction:column}
   .hero-btns a{text-align:center;justify-content:center}
   .services-grid{grid-template-columns:1fr}
@@ -524,6 +524,8 @@ a:hover .arrow{transform:translateX(3px)}
 
   /* Hero */
   .hero{padding-bottom:52px}
+  .hero-bg-img{background-position:58% center}
+  .hero-overlay{background:linear-gradient(to right,rgba(0,0,0,.78) 0%,rgba(0,0,0,.56) 62%,rgba(0,0,0,.26) 100%),linear-gradient(to top,rgba(0,0,0,.58) 0%,rgba(0,0,0,.08) 56%)}
   .hero-badge{font-size:11px;margin-bottom:16px}
   .hero-desc{font-size:16px;max-width:100%;margin-bottom:24px}
   .hero-btns a{width:100%;justify-content:center;text-align:center}
@@ -534,6 +536,7 @@ a:hover .arrow{transform:translateX(3px)}
 
   /* Banner & special-padding wraps — override calc rule back to wrap default */
   .banner{padding:60px 0}
+  .banner-bg-img{background-position:62% center}
   .banner .wrap,.sec-img-bg .wrap{padding-left:20px!important;padding-right:20px!important}
   .banner-lead{font-size:20px;margin-bottom:32px}
 
@@ -545,6 +548,9 @@ a:hover .arrow{transform:translateX(3px)}
 
   /* Sec-img-bg — don't force 100vh on mobile */
   .sec-img-bg{min-height:60vh!important;padding:72px 0}
+  .sec-img-bg{background-position:62% center!important}
+  .sec-img-bg h3[style]{font-size:clamp(30px,9vw,42px)!important;line-height:1.12!important}
+  .sec-img-bg .body-lg{font-size:16px}
 
   /* Quiz */
   .quiz-layout{grid-template-columns:1fr;gap:36px}
@@ -571,6 +577,7 @@ a:hover .arrow{transform:translateX(3px)}
   /* Mobile menu — bigger tap targets */
   .mob-menu{gap:8px;padding:80px 28px}
   .mob-menu a{min-height:48px;display:flex;align-items:center;padding:0 8px;width:100%;justify-content:center}
+  .sponsor-logo{height:44px}
 }
 
 /* ── SMALL MOBILE (≤480px) additions ── */
@@ -581,15 +588,20 @@ a:hover .arrow{transform:translateX(3px)}
 
   /* Hero */
   .hero{padding-bottom:44px}
+  .hero{min-height:92svh}
+  .hero-bg-img{background-position:64% center}
   .hero-desc{font-size:15px}
 
   /* Banner */
   .banner{padding:48px 0}
+  .banner-bg-img{background-position:64% center}
   .banner-lead{font-size:18px;margin-bottom:28px}
   .banner .wrap,.sec-img-bg .wrap{padding-left:16px!important;padding-right:16px!important}
+  .sec-img-bg{background-position:64% center!important}
 
   /* Stats — tighten gap at small width */
   .stats-row{gap:20px 28px}
+  .stat-num{font-size:clamp(30px,10vw,38px)}
 
   /* CTA */
   .cta-box{padding:40px 20px}
@@ -599,6 +611,8 @@ a:hover .arrow{transform:translateX(3px)}
   .body-lg{font-size:16px}
   .body-text{font-size:15px}
   .quiz-left-title{font-size:28px}
+  .quiz-q{font-size:17px}
+  .quiz-opt{padding:12px 14px;font-size:13px}
 
   /* Stepper */
   .how-step-item{gap:14px}
@@ -624,7 +638,8 @@ a:hover .arrow{transform:translateX(3px)}
   .hero h1{font-size:28px}
   .h-xl{font-size:24px}
   .h-lg{font-size:24px}
-  .stat-num{font-size:34px}
+  .stats-row{grid-template-columns:1fr;gap:14px}
+  .stat-num{font-size:32px}
   .cta-box{padding:36px 16px}
   .quiz-box{padding:24px 16px}
   .form-card{padding:24px 16px}
@@ -758,6 +773,7 @@ a:hover .arrow{transform:translateX(3px)}
             <p class="svc-stat-label">8 weeks &nbsp;·&nbsp; 6 modules</p>
           </div>
           <a href="#register" class="svc-card-btn">Enroll Now</a>
+          <a href="mailto:team@nextgenacademy.in?subject=School%20and%20Team%20Enrollment" class="svc-sub-link">For Schools &amp; Teams &rarr; Email us</a>
         </div>
         <div class="svc-card-bottom">
           <p class="svc-feat-label">What's Included</p>
@@ -784,6 +800,7 @@ a:hover .arrow{transform:translateX(3px)}
             <p class="svc-stat-label">12 weeks &nbsp;·&nbsp; 10 modules</p>
           </div>
           <a href="#register" class="svc-card-btn featured-btn">Enroll Now</a>
+          <a href="mailto:team@nextgenacademy.in?subject=School%20and%20Team%20Enrollment" class="svc-sub-link">For Schools &amp; Teams &rarr; Email us</a>
         </div>
         <div class="svc-card-bottom">
           <p class="svc-feat-label">What's Included</p>
@@ -810,6 +827,7 @@ a:hover .arrow{transform:translateX(3px)}
             <p class="svc-stat-label">Self-paced &nbsp;·&nbsp; 79 lessons &nbsp;·&nbsp; 17 chapters</p>
           </div>
           <a href="#adults" class="svc-card-btn">Join the Track</a>
+          <a href="mailto:team@nextgenacademy.in?subject=School%20and%20Team%20Enrollment" class="svc-sub-link">For Schools &amp; Teams &rarr; Email us</a>
         </div>
         <div class="svc-card-bottom">
           <p class="svc-feat-label">What's Included</p>
